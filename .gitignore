@@ -36,3 +36,43 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Logs
+logs
+*.log
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+.idea*
+
+.env
+
+.eslintcache
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite-journal
+/.vs/slnx.sqlite
+/.vs/IntrepidReact.UI/v16/.suo
+/.vs/IntrepidReact.UI/v16/TestStore/1/testlog.manifest
+/.vs/IntrepidReact.UI/v16/TestStore/1/000.testlog
+/.vs/IntrepidReact.UI/v16/TestStore/1
+/.vs/IntrepidReact.UI/v16/TestStore/0/testlog.manifest
+/.vs/IntrepidReact.UI/v16/TestStore/0/000.testlog
+
+# cypress
+cypress.env.json
