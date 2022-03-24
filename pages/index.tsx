@@ -6,6 +6,7 @@ import { useReducer, useState } from "react";
 import { allRunes } from "../constants/runes";
 import { disallowNonNumbers } from "../utils/inputHelpers";
 import Rune from "../assets/lordrune.png";
+import Header from "../components/atoms/Header";
 
 export default () => {
   const [total, dispatch] = useReducer((state: number, action: any) => {
@@ -61,6 +62,8 @@ export default () => {
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
+
+      <Header />
 
       <main className={styles.main}>
         <Image
