@@ -1,13 +1,15 @@
+import Link from "next/link";
+import { Routes } from "../../infrastructure/routes";
+
 export default () => (
   <header>
     <ul>
-      Header
-      {/*<Link activeClassName="active" href={Routes.home}>*/}
-      {/*  simple calculator*/}
-      {/*</Link>*/}
-      {/*<Link activeClassName="active" href={Routes.advancedRouteHeldRunesEntry}>*/}
-      {/*  advanced calculator*/}
-      {/*</Link>*/}
+      <ul>
+        <Link href={Routes.home}>simple calculator</Link>
+        <Link href={Routes.advancedRouteHeldRunesEntry}>
+          advanced calculator
+        </Link>
+      </ul>
     </ul>
   </header>
 );

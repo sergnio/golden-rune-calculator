@@ -7,7 +7,7 @@ import { allRunes } from "../constants/runes";
 import { disallowNonNumbers } from "../utils/inputHelpers";
 import Rune from "../assets/lordrune.png";
 
-const Home: NextPage = () => {
+export default () => {
   const [total, dispatch] = useReducer((state: number, action: any) => {
     if (action === "reset") {
       return 0;
@@ -114,7 +114,7 @@ const Home: NextPage = () => {
         Contribute to the code{" "}
         <a
           target="_blank"
-          href="https://github.com/sergnio/golden-rune-calc"
+          href="https://github.com/sergnio/golden-rune-calculator"
           rel="noreferrer"
         >
           here
@@ -124,5 +124,3 @@ const Home: NextPage = () => {
     </div>
   );
 };
-
-export default Home;
