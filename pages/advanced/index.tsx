@@ -7,5 +7,8 @@ import { useRouter } from "next/router";
 import EnterRunes from "../../components/atoms/EnterRunes";
 
 export default () => (
-  <EnterRunes nextRoute={Routes.advancedRouteDesiredRunes} />
+  <EnterRunes
+    label={"Number of Currently Held Runes"}
+    nextRoute={Routes.advancedRouteDesiredRunes}
+  />
 );

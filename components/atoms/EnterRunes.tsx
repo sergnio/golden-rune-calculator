@@ -5,9 +5,10 @@ import NumberInput from "./NumberInput";
 
 interface Props {
   nextRoute: Function;
+  label: string;
 }
 
-export default ({ nextRoute }: Props) => {
+export default ({ label, nextRoute }: Props) => {
   const [heldRuneCount, setHeldRuneCount] = useState<Undefinable<number>>();
   const { push } = useRouter();
 
@@ -20,7 +21,7 @@ export default ({ nextRoute }: Props) => {
     <div>
       <form onSubmit={handleSubmit}>
         <NumberInput
-          label="Number of Currently Held Runes"
+          label={label}
           value={heldRuneCount}
           setter={setHeldRuneCount}
         />

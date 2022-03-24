@@ -22,6 +22,7 @@ export default () => {
       <h1>{JSON.stringify(heldRunes)}</h1>
       {!hasDesiredRunes && (
         <EnterRunes
+          label={"Number of Desired Runes"}
           nextRoute={Routes.advancedRouteInventoryRunes(Number(heldRunes))}
         />
       )}
