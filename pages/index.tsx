@@ -60,28 +60,6 @@ export default () => {
           className={styles.runeimage}
           alt="image of a golden rune"
         />
-        <div>
-          <label>
-            Desired Target # of Runes
-            <input
-              name="heldRunes"
-              type="number"
-              className={styles.heldRunes}
-              onKeyDown={disallowNonNumbers}
-              value={targetRuneCount}
-              onChange={(event) => {
-                // @ts-ignore
-                if (event?.target?.value) {
-                  // @ts-ignore
-                  setTargetRuneCount(event.target.value);
-                } else {
-                  setTargetRuneCount(0);
-                }
-              }}
-            />
-          </label>
-        </div>
-
         {allRunes.map(({ id, label, soulsGiven }) => (
           <div key={id} className={`${styles.flex} ${styles.spaced}`}>
             <span>{label}</span>

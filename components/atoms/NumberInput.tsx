@@ -16,13 +16,12 @@ export default ({ label, value, setter }: Props) => (
         type="number"
         className="heldRunes"
         onKeyDown={disallowNonNumbers}
+        autoFocus
         min="0"
         value={value}
         onChange={(event) => {
-          // @ts-ignore
           if (event?.target?.value) {
-            // @ts-ignore
-            setHeldRuneCount(event.target.value);
+            setter(Number(event.target.value));
           } else {
             setter(undefined);
           }
