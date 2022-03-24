@@ -1,5 +1,6 @@
 import { disallowNonNumbers } from "../../utils/inputHelpers";
 import { Dispatch, SetStateAction } from "react";
+import camelize from "../../utils/camelize";
 
 interface Props {
   label: string;
@@ -12,7 +13,7 @@ export default ({ label, value, setter }: Props) => (
     {label}
     <div>
       <input
-        name="heldRunes"
+        name={camelize(label)} // change to camel label
         type="number"
         className="heldRunes"
         onKeyDown={disallowNonNumbers}
