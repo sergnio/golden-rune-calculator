@@ -67,5 +67,9 @@ ul {
 }
 
 ul > * {
-  margin-right: 1em;
+  margin-right: .5em;
+}
+
+ul > *:last-child {
+  margin-right: 0em;
 }

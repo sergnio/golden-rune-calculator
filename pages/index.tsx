@@ -54,15 +54,6 @@ export default () => {
 
   return (
     <div>
-      <Head>
-        <title>Golden Rune Calculator</title>
-        <meta
-          name="description"
-          content="Golden Rune Calculator for Elden Ring"
-        />
-        <link rel="icon" href="/favicon.png" />
-      </Head>
-
       <main className={styles.main}>
         <Image
           src={Rune}

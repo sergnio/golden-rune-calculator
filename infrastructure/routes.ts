@@ -1,6 +1,6 @@
-export enum Routes {
-  home = "/",
-  advancedRouteHeldRunesEntry = "/advanced",
-  advancedRouteDesiredRunes = "/advanced/:heldRunes",
-  advancedRouteInventoryRunes = "/advanced/:heldRunes/:desiredRunes",
-}
+export const Routes = {
+  home: "/",
+  advancedRouteHeldRunesEntry: "/advanced",
+  advancedRouteDesiredRunes: (heldRunes: number) => `/advanced/${heldRunes}`,
+  advancedRouteInventoryRunes: "/advanced/:heldRunes/:desiredRunes",
+};
