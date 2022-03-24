@@ -63,8 +63,6 @@ export default () => {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <Header />
-
       <main className={styles.main}>
         <Image
           src={Rune}
@@ -113,17 +111,6 @@ export default () => {
         <h2>total: {total}</h2>
         <button onClick={reset}>reset</button>
       </main>
-      <footer className={`${styles.bottom} ${styles.smallText}`}>
-        Contribute to the code{" "}
-        <a
-          target="_blank"
-          href="https://github.com/sergnio/golden-rune-calculator"
-          rel="noreferrer"
-        >
-          here
-        </a>
-        !
-      </footer>
     </div>
   );
 };
