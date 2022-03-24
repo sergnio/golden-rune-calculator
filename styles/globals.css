@@ -5,6 +5,15 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   text-align: center;
+  height: 100%;
+  width: 100%;
+  background-color: #342550;
+  font-family: "Helvetica Neue", arial, sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.5em;
 }
 
 * {
