@@ -14,11 +14,9 @@ export default () => {
     if (action === "reset") {
       return 0;
     }
-    // @ts-ignore
     if (state <= 0 && action <= 0) {
       return 0;
     }
-    // @ts-ignore
     return state + action;
   }, 0);
 

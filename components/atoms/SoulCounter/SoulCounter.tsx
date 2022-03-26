@@ -12,23 +12,23 @@ interface Props {
 
 export default ({ increment, decrease, total, reset, runeCount }: Props) => (
   <>
-    {allRunes.map(({ id, label, soulsGiven }) => (
-      <div key={id} className={`${styles.flex} ${styles.spaced}`}>
-        <span>{label}</span>
-        <button onClick={increment(soulsGiven, id)}>+</button>
-        <button
-          disabled={!runeCount.find((r) => r.id === id)}
-          onClick={decrease(soulsGiven, id)}
-        >
-          -
-        </button>
-        {runeCount.find((r) => r.id === id)?.count && (
-          <span className={`${styles.fixed} ${styles.nomargin}`}>
-            total: {runeCount.find((r) => r.id === id)?.count}
-          </span>
-        )}
-      </div>
-    ))}
+    {allRunes.map(({ id, label, soulsGiven }) => {
+      const totalRunes = runeCount.find((r) => r.id === id)?.count;
+      return (
+        <div key={id} className={`${styles.flex} ${styles.spaced}`}>
+          <span>{label}</span>
+          <button onClick={increment(soulsGiven, id)}>+</button>
+          <button disabled={!totalRunes} onClick={decrease(soulsGiven, id)}>
+            -
+          </button>
+          {runeCount.find((r) => r.id === id)?.count && (
+            <span className={`${styles.fixed} ${styles.nomargin}`}>
+              total: {totalRunes}
+            </span>
+          )}
+        </div>
+      );
+    })}
     <h2>total: {total}</h2>
     <button onClick={reset}>reset</button>
   </>
