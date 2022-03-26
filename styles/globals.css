@@ -1,3 +1,7 @@
+:root {
+  --background-clr: #342550;
+}
+
 html,
 body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -5,7 +9,7 @@ body {
   text-align: center;
   height: 100%;
   width: 100%;
-  background-color: #342550;
+  background-color: var(--background-clr);
   font-family: "Helvetica Neue", arial, sans-serif;
   font-weight: 400;
   color: #ffffff;
@@ -13,7 +17,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.25rem;
 }
-
 
 .flex {
 }
@@ -67,7 +70,7 @@ ul {
 }
 
 ul > * {
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 
 ul > *:last-child {

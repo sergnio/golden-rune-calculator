@@ -4,6 +4,7 @@ import EnterRunes from "../../components/atoms/EnterRunes/EnterRunes";
 import SoulCounter from "../../components/atoms/SoulCounter/SoulCounter";
 import useSoulCounter from "../../components/atoms/SoulCounter/useSoulCounter";
 import { calculateHighestFirst } from "../../utils/calculate";
+import Modal from "../../components/atoms/Modal/Modal";
 
 export default () => {
   const {
@@ -41,6 +42,7 @@ export default () => {
         <>
           <button onClick={onCalculate}>Calculate!</button>
           <SoulCounter {...props} />
+          <Modal />
         </>
       )}
     </>
