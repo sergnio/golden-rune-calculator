@@ -7,6 +7,7 @@ import { CalcReturn, calculateHighestFirst } from "../../utils/calculate";
 import Modal from "../../components/atoms/Modal/Modal";
 import { useState } from "react";
 import useModal from "../../components/atoms/Modal/useModal";
+import styles from "./HeldRunes.module.css";
 
 export default () => {
   const {
@@ -26,7 +27,6 @@ export default () => {
   const currentRunes = heldRunes[0];
   const desiredRunes = heldRunes[1];
   const onCalculate = () => {
-    console.log("calculating");
     const result = calculateHighestFirst(
       parseInt(currentRunes),
       parseInt(desiredRunes),
@@ -34,20 +34,28 @@ export default () => {
     );
     setFinalRunes(result);
     modalProps.toggleModal();
-    console.log("result", result);
   };
 
   return (
     <>
-      <h1>{JSON.stringify(heldRunes)}</h1>
       {!desiredRunes ? (
         <EnterRunes
           label={"Number of Desired Runes"}
           nextRoute={Routes.advancedRouteInventoryRunes(Number(heldRunes))}
+          validate={(inputDesiredRunes) =>
+            inputDesiredRunes >= parseInt(currentRunes)
+          }
+          errorMessage="Please enter a rune count higher than currently held runes!"
         />
       ) : (
         <>
-          <button onClick={onCalculate}>Calculate!</button>
+          <button
+            className={styles.calculateButton}
+            disabled={!runeCount.some((r) => r.count > 0)}
+            onClick={onCalculate}
+          >
+            Calculate for me!
+          </button>
           <SoulCounter {...props} />
           <Modal {...modalProps} finalRunes={finalRunes} />
         </>
