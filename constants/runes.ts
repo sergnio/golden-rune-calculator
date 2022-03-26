@@ -29,6 +29,12 @@ export const getRuneByName = (rune: RuneLabel): Rune =>
     // cheating since this should always return true if we're using RuneLabel as the param
   ) as Rune;
 
+export const getRuneById = (runeId: number): Rune =>
+  allRunes.find(
+    (foundRune) => foundRune.id === runeId
+    // cheating since this should always return true if we're using RuneLabel as the param
+  ) as Rune;
+
 export const allRunes: Rune[] = [
   {
     id: 1,

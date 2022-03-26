@@ -1,6 +1,14 @@
 import { useReducer, useState } from "react";
+import { getRuneById } from "../../../constants/runes";
 
 export type RuneCount = { [id: number]: number };
+
+const replaceRune = (
+  id: number,
+  runeCount: InventoryRune[],
+  editedRune: InventoryRune
+) => runeCount.map((rune) => (rune.id === id ? editedRune : rune));
+
 export default () => {
   const [total, dispatch] = useReducer((state: number, action: any) => {
     if (action === "reset") {
@@ -14,14 +22,18 @@ export default () => {
     return state + action;
   }, 0);
 
-  const [runeCount, setCount] = useState<RuneCount>({});
+  const [runeCount, setCount] = useState<InventoryRune[]>([]);
+  console.log(runeCount);
 
   const increment = (souls: number, id: number) => () => {
     dispatch(souls);
-    if (runeCount[id]) {
-      setCount({ ...runeCount, [id]: runeCount[id] + 1 });
+    const foundRune = runeCount.find((r) => r.id === id);
+    if (foundRune) {
+      const editedRune = { ...foundRune, count: foundRune.count + 1 };
+      setCount(replaceRune(id, runeCount, editedRune));
     } else {
-      setCount({ ...runeCount, [id]: 1 });
+      const rune: InventoryRune = { ...getRuneById(id), count: 1 };
+      setCount([...runeCount, rune]);
     }
   };
 
@@ -29,18 +41,20 @@ export default () => {
     if (!total) return;
 
     dispatch(-souls);
-    if (runeCount[id]) {
-      setCount({ ...runeCount, [id]: runeCount[id] - 1 });
+    const foundRune = runeCount.find((r) => r.id === id);
+    if (foundRune) {
+      const editedRune = { ...foundRune, count: foundRune.count - 1 };
+      setCount(replaceRune(id, runeCount, editedRune));
     }
-    if (runeCount[id] <= 0) {
-      const newCounts = { ...runeCount };
-      setCount(newCounts);
-    }
+    // if (runeCount[id] <= 0) {
+    //   const newCounts = { ...runeCount };
+    //   setCount(newCounts);
+    // }
   };
 
   const reset = () => {
     dispatch("reset");
-    setCount({});
+    setCount([]);
   };
 
   return { total, reset, decrease, increment, runeCount };
