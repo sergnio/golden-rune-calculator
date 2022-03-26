@@ -1,31 +1,43 @@
 import styles from "./Modal.module.css";
 import { useState } from "react";
+import { CalcReturn } from "../../../utils/calculate";
 
-export default () => {
-  const [open, setOpen] = useState<boolean>(true);
-  const closeModal = () => setOpen(false);
-  const openModal = () => setOpen(true);
+interface Props {
+  open: boolean;
+  toggleModal(): void;
+  finalRunes: Undefinable<CalcReturn>;
+}
 
-  return (
-    <>
-      <button id="myBtn" onClick={openModal}>
-        Open Modal
-      </button>
+export default ({ open, toggleModal, finalRunes }: Props) => (
+  <>
+    <button id="myBtn" onClick={toggleModal}>
+      Open Modal
+    </button>
 
-      <div
-        id="myModal"
-        className={`${styles.modal} ${open ? styles.visible : styles.hidden}`}
-      >
-        <div className={styles.modalContent}>
-          <span className={styles.close} onClick={closeModal}>
-            &times;
-          </span>
-          <p>Some text in the Modal..</p>
-          <button onClick={closeModal} className={styles.closeButton}>
-            Close
-          </button>
-        </div>
+    <div
+      id="myModal"
+      className={`${styles.modal} ${open ? styles.visible : styles.hidden}`}
+    >
+      <div className={styles.modalContent}>
+        <span className={styles.close} onClick={toggleModal}>
+          &times;
+        </span>
+        {finalRunes?.runes.length ? (
+          <>
+            <p>Difference: {finalRunes.difference}</p>
+            {finalRunes.runes.map((rune, index) => (
+              <p key={index} className={styles.p}>
+                {rune.label}, X{rune.count}
+              </p>
+            ))}
+          </>
+        ) : (
+          <>No runes selected!</>
+        )}
+        <button onClick={toggleModal} className={styles.closeButton}>
+          Close
+        </button>
       </div>
-    </>
-  );
-};
+    </div>
+  </>
+);

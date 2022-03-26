@@ -46,3 +46,7 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.p {
+  margin-block: 0;
+}

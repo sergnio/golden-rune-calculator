@@ -3,13 +3,18 @@ import { Routes } from "../../infrastructure/routes";
 import EnterRunes from "../../components/atoms/EnterRunes/EnterRunes";
 import SoulCounter from "../../components/atoms/SoulCounter/SoulCounter";
 import useSoulCounter from "../../components/atoms/SoulCounter/useSoulCounter";
-import { calculateHighestFirst } from "../../utils/calculate";
+import { CalcReturn, calculateHighestFirst } from "../../utils/calculate";
 import Modal from "../../components/atoms/Modal/Modal";
+import { useState } from "react";
+import useModal from "../../components/atoms/Modal/useModal";
 
 export default () => {
   const {
     query: { heldRunes },
   } = useRouter();
+  const [finalRunes, setFinalRunes] = useState<Undefinable<CalcReturn>>();
+
+  const modalProps = useModal();
 
   const props = useSoulCounter();
   const { runeCount } = props;
@@ -27,6 +32,8 @@ export default () => {
       parseInt(desiredRunes),
       runeCount
     );
+    setFinalRunes(result);
+    modalProps.toggleModal();
     console.log("result", result);
   };
 
@@ -42,7 +49,7 @@ export default () => {
         <>
           <button onClick={onCalculate}>Calculate!</button>
           <SoulCounter {...props} />
-          <Modal />
+          <Modal {...modalProps} finalRunes={finalRunes} />
         </>
       )}
     </>
