@@ -1,5 +1,4 @@
 import styles from "./Modal.module.css";
-import { useState } from "react";
 import { CalcReturn } from "../../../utils/calculate";
 
 interface Props {
