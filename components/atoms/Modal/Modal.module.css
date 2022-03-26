@@ -50,3 +50,11 @@
 .p {
   margin-block: 0;
 }
+
+.inTheMoney {
+    color: green;
+}
+
+.outTheMoney {
+    color: red
+}
