@@ -63,6 +63,23 @@ test(
   }
 );
 
+test("given 1 rune that is divisible by the desired amount, return the divisor", () => {
+  const result = calculateHighestFirst(0, 800, [
+    { ...getRuneByName(RuneLabel.GoldenRune1), count: 4 },
+  ]);
+
+  const expected = {
+    runes: [
+      {
+        ...getRuneByName(RuneLabel.GoldenRune1),
+        count: 4,
+      },
+    ],
+    difference: 0,
+  };
+  expect(result).toStrictEqual(expected);
+});
+
 test("given 2 runes that over shoot our desired amount, we should return the negative difference", () => {
   const result = calculateHighestFirst(0, 1000, [
     { ...getRuneByName(RuneLabel.GoldenRune2), count: 1 },

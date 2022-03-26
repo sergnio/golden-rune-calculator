@@ -84,20 +84,20 @@ export const calculateHighestFirst = (
       const foundRune = returnRunes.find((r) => r.id === highestCountRune?.id);
 
       if (foundRune) {
-        returnRunes = [
-          ...returnRunes,
-          { ...highestCountRune, count: foundRune.count + 1 },
-        ];
+        returnRunes = replaceRune(foundRune.id, returnRunes, {
+          ...foundRune,
+          count: foundRune.count + 1,
+        });
       } else {
         returnRunes = [...returnRunes, { ...highestCountRune, count: 1 }];
       }
 
       runningCount += highestCountRune.soulsGiven;
+      highestCountRune.count -= 1;
       updatedRunes = replaceRune(highestCountRune.id, updatedRunes, {
         ...highestCountRune,
-        count: 0,
+        count: highestCountRune.count,
       });
-      highestCountRune.count -= 1;
     }
   }
 
