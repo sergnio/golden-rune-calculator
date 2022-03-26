@@ -16,10 +16,6 @@ export default ({ open, toggleModal, finalRunes }: Props) => {
 
   return (
     <>
-      <button id="myBtn" onClick={toggleModal}>
-        Open Modal
-      </button>
-
       <div
         id="myModal"
         className={`${styles.modal} ${open ? styles.visible : styles.hidden}`}

@@ -12,6 +12,9 @@ interface Props {
 
 export default ({ increment, decrease, total, reset, runeCount }: Props) => (
   <>
+    <div>
+      <button onClick={reset}>reset</button>
+    </div>
     {allRunes.map(({ id, label, soulsGiven }) => {
       const totalRunes = runeCount.find((r) => r.id === id)?.count;
       return (
@@ -30,6 +33,5 @@ export default ({ increment, decrease, total, reset, runeCount }: Props) => (
       );
     })}
     <h2>total: {total}</h2>
-    <button onClick={reset}>reset</button>
   </>
 );
