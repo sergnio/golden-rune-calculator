@@ -23,7 +23,6 @@ export default () => {
   }, 0);
 
   const [runeCount, setCount] = useState<InventoryRune[]>([]);
-  console.log(runeCount);
 
   const increment = (souls: number, id: number) => () => {
     dispatch(souls);
@@ -39,7 +38,6 @@ export default () => {
 
   const decrease = (souls: number, id: number) => () => {
     if (!total) return;
-
     dispatch(-souls);
     const foundRune = runeCount.find((r) => r.id === id);
     if (foundRune) {
