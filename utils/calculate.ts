@@ -54,6 +54,7 @@ export const calculateHighestFirst = (
           rune.count > 0)
       ) {
         // then it's our new rune!
+        // Create a new object otherwise it will use the reference
         highestCountRune = { ...rune };
       }
     });
@@ -71,6 +72,7 @@ export const calculateHighestFirst = (
             rn.soulsGiven < highestCountRune.soulsGiven &&
             rn.count > 0)
         )
+          // Create a new object otherwise it will use the reference
           highestCountRune = { ...rn };
       });
     }
