@@ -1,13 +1,8 @@
 import { useReducer, useState } from "react";
 import { getRuneById } from "../../../constants/runes";
+import { replaceRune } from "../../../utils/runeUtils";
 
 export type RuneCount = { [id: number]: number };
-
-const replaceRune = (
-  id: number,
-  runeCount: InventoryRune[],
-  editedRune: InventoryRune
-) => runeCount.map((rune) => (rune.id === id ? editedRune : rune));
 
 export default () => {
   const [total, dispatch] = useReducer((state: number, action: any) => {

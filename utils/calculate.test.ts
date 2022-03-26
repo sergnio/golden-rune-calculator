@@ -93,7 +93,7 @@ test("given 2 runes that over shoot our desired amount, we should return the neg
  * Have no runes
  * should return no runes and a difference of 100
  * */
-it("Should should return no runes and a difference of 100", () => {
+test("should return no runes and a difference of 100", () => {
   expect(calculateHighestFirst(0, 100, [])).toEqual({
     runes: [],
     difference: 100,

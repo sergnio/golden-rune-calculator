@@ -1,3 +1,5 @@
+import { replaceRune } from "./runeUtils";
+
 export interface CalcReturn {
   runes: InventoryRune[];
   difference?: number;
@@ -27,7 +29,7 @@ export const calculateHighestFirst = (
   * */
   let runningCount = currentCount;
   let returnRunes: InventoryRune[] = [];
-  const updatedRunes: InventoryRune[] = [...soulsOwned];
+  let updatedRunes: InventoryRune[] = [...soulsOwned];
 
   while (runningCount < desiredAmount) {
     let hasAtleastOneRune = updatedRunes.filter((rune) => rune.count > 0);
@@ -91,6 +93,10 @@ export const calculateHighestFirst = (
       }
 
       runningCount += highestCountRune.soulsGiven;
+      updatedRunes = replaceRune(highestCountRune.id, updatedRunes, {
+        ...highestCountRune,
+        count: 0,
+      });
       highestCountRune.count -= 1;
     }
   }
