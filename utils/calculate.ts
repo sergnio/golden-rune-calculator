@@ -54,7 +54,7 @@ export const calculateHighestFirst = (
           rune.count > 0)
       ) {
         // then it's our new rune!
-        highestCountRune = rune;
+        highestCountRune = { ...rune };
       }
     });
 
@@ -71,7 +71,7 @@ export const calculateHighestFirst = (
             rn.soulsGiven < highestCountRune.soulsGiven &&
             rn.count > 0)
         )
-          highestCountRune = rn;
+          highestCountRune = { ...rn };
       });
     }
     // remove a rune of that count
