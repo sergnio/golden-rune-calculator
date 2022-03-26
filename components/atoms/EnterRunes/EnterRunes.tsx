@@ -1,7 +1,6 @@
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/router";
-import { Routes } from "../../infrastructure/routes";
-import NumberInput from "./NumberInput";
+import NumberInput from "../NumberInput/NumberInput";
 
 interface Props {
   nextRoute: Function;

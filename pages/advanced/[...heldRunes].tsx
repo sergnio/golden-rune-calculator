@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import EnterRunes from "../../components/atoms/EnterRunes";
 import { Routes } from "../../infrastructure/routes";
+import EnterRunes from "../../components/atoms/EnterRunes/EnterRunes";
 
 export default () => {
   const {
@@ -8,11 +8,7 @@ export default () => {
   } = useRouter();
 
   if (!heldRunes) {
-    console.log("heldRunes", heldRunes);
     return <h1>loading...</h1>;
-    // route back home
-  } else {
-    console.log("has some", heldRunes);
   }
 
   const hasDesiredRunes = heldRunes[1];

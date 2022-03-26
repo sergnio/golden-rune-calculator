@@ -1,6 +1,6 @@
-import { disallowNonNumbers } from "../../utils/inputHelpers";
 import { Dispatch, SetStateAction } from "react";
-import camelize from "../../utils/camelize";
+import { disallowNonNumbers } from "../../../utils/inputHelpers";
+import camelize from "../../../utils/camelize";
 
 interface Props {
   label: string;
