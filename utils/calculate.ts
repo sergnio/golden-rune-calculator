@@ -78,7 +78,18 @@ export const calculateHighestFirst = (
     }
     // remove a rune of that count
     if (highestCountRune) {
-      returnRunes = [...returnRunes, { ...highestCountRune }];
+      // if it's the first time in the list, give it a count of 1
+      const foundRune = returnRunes.find((r) => r.id === highestCountRune?.id);
+
+      if (foundRune) {
+        returnRunes = [
+          ...returnRunes,
+          { ...highestCountRune, count: foundRune.count + 1 },
+        ];
+      } else {
+        returnRunes = [...returnRunes, { ...highestCountRune, count: 1 }];
+      }
+
       runningCount += highestCountRune.soulsGiven;
       highestCountRune.count -= 1;
     }

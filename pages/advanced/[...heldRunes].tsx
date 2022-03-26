@@ -26,6 +26,7 @@ export default () => {
       parseInt(desiredRunes),
       runeCount
     );
+    console.log("result", result);
   };
 
   return (
