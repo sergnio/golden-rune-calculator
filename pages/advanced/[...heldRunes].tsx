@@ -8,6 +8,7 @@ import Modal from "../../components/atoms/Modal/Modal";
 import { useState } from "react";
 import useModal from "../../components/atoms/Modal/useModal";
 import styles from "./HeldRunes.module.css";
+import ExperimentalHeader from "../../components/atoms/Header/ExperimentalHeader";
 
 export default () => {
   const {
@@ -38,7 +39,10 @@ export default () => {
 
   return (
     <>
-      {!desiredRunes ? (
+      <ExperimentalHeader />
+      {currentRunes === desiredRunes ? (
+        <h2>You have exactly the runes you need! Have fun :)</h2>
+      ) : !desiredRunes ? (
         <EnterRunes
           label={"Number of Desired Runes"}
           nextRoute={Routes.advancedRouteInventoryRunes(Number(heldRunes))}

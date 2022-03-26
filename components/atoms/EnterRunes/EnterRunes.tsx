@@ -16,9 +16,7 @@ export default ({ label, nextRoute, validate, errorMessage }: Props) => {
   const { push } = useRouter();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    console.log("submitting");
     e.preventDefault();
-    console.log(heldRuneCount);
     if (!validate) {
       push(nextRoute(heldRuneCount as number));
       setError(undefined);
@@ -26,7 +24,6 @@ export default ({ label, nextRoute, validate, errorMessage }: Props) => {
       push(nextRoute(heldRuneCount as number));
       setError(undefined);
     } else {
-      console.log("error I guess");
       setError(errorMessage);
     }
   };

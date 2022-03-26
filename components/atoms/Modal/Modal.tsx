@@ -12,7 +12,6 @@ export default ({ open, toggleModal, finalRunes }: Props) => {
   const overSpent =
     finalRunes && finalRunes.difference && finalRunes.difference < 0;
   const isExact = Boolean(finalRunes?.difference === 0);
-  console.log({ isExact });
 
   return (
     <>
@@ -46,7 +45,7 @@ export default ({ open, toggleModal, finalRunes }: Props) => {
               ))}
             </>
           ) : (
-            <>No runes selected!</>
+            <p>No runes selected!</p>
           )}
           <button onClick={toggleModal} className={styles.closeButton}>
             Close
