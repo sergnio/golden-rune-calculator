@@ -11,12 +11,14 @@ export enum RuneLabel {
   GoldenRune10 = "Golden Rune (10)",
   GoldenRune11 = "Golden Rune (11)",
   GoldenRune12 = "Golden Rune (12)",
+  GoldenRune13 = "Golden Rune (13)",
   HerosRune1 = "Hero's Rune (1)",
   HerosRune2 = "Hero's Rune (2)",
   HerosRune3 = "Hero's Rune (3)",
   HerosRune4 = "Hero's Rune (4)",
   HerosRune5 = "Hero's Rune (5)",
   LordsRune = "Lord's Rune",
+  NumensRune = "Numen's Rune",
 }
 
 /**
@@ -48,7 +50,6 @@ export const allRunes: Rune[] = [
   },
   {
     id: 3,
-
     label: RuneLabel.GoldenRune3,
     soulsGiven: 800,
   },
@@ -98,6 +99,11 @@ export const allRunes: Rune[] = [
     soulsGiven: 7500,
   },
   {
+    id: 130,
+    label: RuneLabel.GoldenRune13,
+    soulsGiven: 10000,
+  },
+  {
     id: 13,
     label: RuneLabel.HerosRune1,
     soulsGiven: 15000,
@@ -126,5 +132,10 @@ export const allRunes: Rune[] = [
     id: 18,
     label: RuneLabel.LordsRune,
     soulsGiven: 50000,
+  },
+  {
+    id: 19,
+    label: RuneLabel.NumensRune,
+    soulsGiven: 12500,
   },
 ];
