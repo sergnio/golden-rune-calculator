@@ -1,16 +1,16 @@
 import styles from "../../../styles/Home.module.css";
+import SCStyles from "./SoulCounter.module.css";
 import { allRunes } from "../../../constants/runes";
-import type { RuneCount } from "./useSoulCounter";
+import type { SoulCounterReturn as Props } from "./useSoulCounter";
 
-interface Props {
-  increment: (souls: number, id: number) => () => void;
-  decrease: (souls: number, id: number) => () => void;
-  total: number;
-  reset(): void;
-  runeCount: InventoryRune[];
-}
-
-export default ({ increment, decrease, total, reset, runeCount }: Props) => (
+export default ({
+  increment,
+  decrease,
+  total,
+  reset,
+  runeCount,
+  setExactCount,
+}: Props) => (
   <>
     <div>
       <button onClick={reset}>reset</button>
@@ -24,6 +24,11 @@ export default ({ increment, decrease, total, reset, runeCount }: Props) => (
           <button disabled={!totalRunes} onClick={decrease(soulsGiven, id)}>
             -
           </button>
+          <input
+            className={`${SCStyles.input}`}
+            type="number"
+            onChange={setExactCount(id)}
+          />
           {runeCount.find((r) => r.id === id)?.count && (
             <span className={`${styles.fixed} ${styles.nomargin}`}>
               total: {totalRunes}
