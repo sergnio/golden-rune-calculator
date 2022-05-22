@@ -15,29 +15,40 @@ export default ({
     <div>
       <button onClick={reset}>reset</button>
     </div>
-    {allRunes.map(({ id, label }) => {
-      const totalRunes = runeCount.find((r) => r.id === id)?.count;
-      return (
-        <div key={id} className={`${styles.flex} ${styles.spaced}`}>
-          <span>{label}</span>
-          <button onClick={increase(id)}>+</button>
-          <button disabled={!totalRunes} onClick={decrease(id)}>
-            -
-          </button>
-          <input
-            className={`${SCStyles.input}`}
-            type="number"
-            onChange={setExactCount(id)}
-            value={totalRunes}
-          />
-          {runeCount.find((r) => r.id === id)?.count && (
-            <span className={`${styles.fixed} ${styles.nomargin}`}>
-              total: {totalRunes}
-            </span>
-          )}
-        </div>
-      );
-    })}
+    <table className={SCStyles.table}>
+      <tbody>
+        {allRunes.map(({ id, label, soulsGiven }) => {
+          const totalRunes = runeCount.find((r) => r.id === id)?.count;
+          return (
+            <tr key={id}>
+              <td>
+                <div className={SCStyles.label}>{label}</div>
+              </td>
+              <td>
+                <div className={SCStyles.controls}>
+                  <button className={SCStyles.button} onClick={increase(id)}>
+                    +
+                  </button>
+                  <button
+                    className={SCStyles.button}
+                    disabled={!totalRunes}
+                    onClick={decrease(id)}
+                  >
+                    -
+                  </button>
+                  <input
+                    className={SCStyles.input}
+                    type="number"
+                    onChange={setExactCount(id)}
+                    value={totalRunes}
+                  />
+                </div>
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
     <h2>total: {runeTotal(runeCount)}</h2>
   </>
 );

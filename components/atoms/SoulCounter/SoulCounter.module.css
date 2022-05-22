@@ -1,3 +1,61 @@
+.table {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  border-spacing: 0.5rem;
+}
+
+.table tr {
+  position: relative;
+  padding-top: 0.5rem;
+}
+
+.table tr:after {
+  --gradient-offset: 2rem;
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--gradient-offset));
+  right: calc(-1 * var(--gradient-offset));
+  top: 0;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgb(85, 82, 63, 0) 0%,
+    rgb(85, 82, 63, 0.5) var(--gradient-offset),
+    rgb(85, 82, 63, 0.5) calc(100% - var(--gradient-offset)),
+    rgb(85, 82, 63, 0) 100%
+  );
+}
+
+.table td {
+  padding: 0.25rem;
+}
+
+.label {
+    padding-right: 8rem;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.button {
+  background-color: transparent;
+  border: 1px solid currentColor;
+  color: inherit;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1rem;
+  padding: 0;
+}
+
 .input {
-    width: 4em;
+  background-color: transparent;
+  border: 1px solid currentColor;
+  color: inherit;
+  width: 5em;
+  padding: 0.5rem;
 }
