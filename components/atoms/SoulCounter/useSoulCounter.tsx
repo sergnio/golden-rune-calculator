@@ -40,7 +40,6 @@ export default (): SoulCounterReturn => {
     // extremely janky work around when manually setting the number of runes, since I started with redux
     // further reason why redux sucks :P
     const inputValue = parseInt(e.currentTarget.value) || 0;
-    console.log(inputValue);
     const foundRune = runeCount.find((r) => r.id === id);
     if (foundRune) {
       const newRune: InventoryRune = {
