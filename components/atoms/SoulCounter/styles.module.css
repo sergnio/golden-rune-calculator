@@ -1,17 +1,22 @@
-.table {
+.Container {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5rem;
   margin-left: auto;
   margin-right: auto;
-  text-align: left;
-  border-spacing: 0.5rem;
   min-width: var(--table-min-width);
+  text-align: left;
 }
 
-.table tr {
+.Row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
-  padding-top: 0.5rem;
+  padding: 0.5rem;
 }
 
-.table tr:after {
+.Row:after {
   --gradient-offset: 2rem;
   content: "";
   position: absolute;
@@ -27,11 +32,6 @@
     rgb(85, 82, 63, 0.5) calc(100% - var(--gradient-offset)),
     rgb(85, 82, 63, 0) 100%
   );
-}
-
-.table td {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
 }
 
 .controls {
