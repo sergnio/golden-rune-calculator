@@ -1,4 +1,4 @@
-import { ChangeEvent, useReducer, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { getRuneById } from "../../../constants/runes";
 import { replaceRune } from "../../../utils/runeUtils";
 
