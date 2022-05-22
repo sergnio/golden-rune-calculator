@@ -2,7 +2,7 @@ import type { SoulCounterReturn as Props } from "./useSoulCounter";
 import { allRunes } from "../../../constants/runes";
 import { runeTotal } from "../../../utils/calculate";
 import StickyFooter from "../StickyFooter";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 const SoulContainer = ({
   increase,

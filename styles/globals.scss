@@ -1,0 +1,84 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:root {
+  --background-clr: #10130f;
+  --site-padding: 0.5rem;
+  --table-min-width: 100%;
+
+  @media screen and (min-width: 64rem) {
+    --site-padding: 1rem;
+    --table-min-width: 28rem;
+  }
+}
+
+html,
+body {
+  font-size: 1.1rem;
+  margin: 0;
+  min-height: 100%;
+
+  @media screen and (min-width: 64rem) {
+    font-size: 1.25rem;
+  }
+}
+
+body {
+  background-color: var(--background-clr);
+  color: #d7d5c5;
+  font-family: Garamond, serif;
+  font-weight: 400;
+  text-align: center;
+  text-shadow: 1px 1px 1px black, 3px 3px 3px black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: var(--site-padding);
+  position: relative;
+  
+  // &:before {
+  //   content: "RUNE CALCULATOR";
+  //   position: fixed;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 10%;
+  //   left: 0;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   color: #d7d5c5;
+  //   z-index: -1;
+  //   font-size: 9vw;
+  //   opacity: 0.04;
+  //   pointer-events: none;
+  // }
+}
+
+.heldRunes {
+  width: 5em;
+}
+
+a {
+  text-decoration: none;
+  color: #f1a656;
+}
+
+a:visited {
+  color: #b96710;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+svg {
+  fill: currentColor;
+}

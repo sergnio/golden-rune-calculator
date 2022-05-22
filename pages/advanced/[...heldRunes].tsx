@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { Routes } from "../../infrastructure/routes";
+import { CalcReturn, calculateHighestFirst } from "../../utils/calculate";
 import EnterRunes from "../../components/atoms/EnterRunes/EnterRunes";
 import SoulCounter from "../../components/atoms/SoulCounter";
 import useSoulCounter from "../../components/atoms/SoulCounter/useSoulCounter";
-import { CalcReturn, calculateHighestFirst } from "../../utils/calculate";
 import Modal from "../../components/atoms/Modal/Modal";
 import useModal from "../../components/atoms/Modal/useModal";
 import ExperimentalHeader from "../../components/atoms/Header/ExperimentalHeader";

@@ -2,19 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import Rune from "../../../assets/lordrune.png";
 import { Routes } from "../../../infrastructure/routes";
-import styles from "./Header.module.css";
 import Github from "../Github";
+import styles from "./styles.module.scss";
 
-export default () => (
-  <header className={styles.header}>
-    <Image
-      src={Rune}
-      className={styles.runeimage}
-      alt="golden rune"
-      height={100}
-      width={100}
-    />
-    <nav className={styles.nav}>
+const Header = () => (
+  <nav className={styles.Nav}>
+    <div className={styles.Logo}>
+      <Image src={Rune} alt="golden rune" height={80} width={80} />
+    </div>
+    <div className={styles.Links}>
       <Link href={Routes.home}>Simple</Link>
       <Link href={Routes.advancedRouteHeldRunesEntry}>Advanced</Link>
       <a
@@ -25,6 +21,8 @@ export default () => (
       >
         <Github /> Contribute
       </a>
-    </nav>
-  </header>
+    </div>
+  </nav>
 );
+
+export default Header;
