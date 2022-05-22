@@ -20,17 +20,6 @@ export default ({ children }: Props) => {
       </Head>
       <Header />
       <main>{children}</main>
-      <footer className={`${styles.bottom} ${styles.smallText}`}>
-        Contribute to the code{" "}
-        <a
-          target="_blank"
-          href="https://github.com/sergnio/golden-rune-calculator"
-          rel="noreferrer"
-        >
-          here
-        </a>
-        !
-      </footer>
     </>
   );
 };

@@ -87,3 +87,7 @@ a:visited {
 button {
   cursor: pointer;
 }
+
+svg {
+  fill: currentColor;
+}

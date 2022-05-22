@@ -1,8 +1,9 @@
 .header {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 2rem;
   margin: 0;
+  margin-bottom: 1rem;
   position: relative;
 }
 
@@ -13,7 +14,7 @@
   left: calc(-1 * var(--gradient-offset));
   top: 0;
   height: 100%;
-  width: 50%;
+  width: 100%;
   background: linear-gradient(
     90deg,
     rgb(85, 82, 63, 0) 0%,
@@ -27,6 +28,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-grow: 1;
 }
 
 .nav a {
@@ -39,4 +41,11 @@
 
 .runeimage {
   height: 4rem;
+}
+
+.contribute {
+  display: flex;
+  align-items: center;
+  gap: 0.5ch;
+  margin-left: auto;
 }
