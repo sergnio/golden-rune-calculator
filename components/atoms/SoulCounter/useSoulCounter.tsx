@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import { getRuneById } from "../../../constants/runes";
+import { allRunes, getRuneById } from "../../../constants/runes";
 import { replaceRune } from "../../../utils/runeUtils";
 
 export type SoulCounterReturn = {
@@ -11,7 +11,9 @@ export type SoulCounterReturn = {
 };
 
 export default (): SoulCounterReturn => {
-  const [runeCount, setCount] = useState<InventoryRune[]>([]);
+  const [runeCount, setCount] = useState<InventoryRune[]>(
+    allRunes.map((rune) => ({ ...rune, count: 0 }))
+  );
 
   const increase = (id: number) => () => {
     const foundRune = runeCount.find((r) => r.id === id);
