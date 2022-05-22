@@ -9,6 +9,12 @@ export interface CalcReturn {
 const isWithin = (rune: Rune, currentCount: number, desiredAmount: number) =>
   rune.soulsGiven + currentCount <= desiredAmount;
 
+export const runeTotal = (runeCount: InventoryRune[]): number =>
+  runeCount.reduce(
+    (previous, current) => previous + current.count * current.soulsGiven,
+    0
+  );
+
 export const calculateHighestFirst = (
   currentCount: number,
   desiredAmount: number,
