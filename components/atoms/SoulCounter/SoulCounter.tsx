@@ -28,6 +28,7 @@ export default ({
             className={`${SCStyles.input}`}
             type="number"
             onChange={setExactCount(id)}
+            value={totalRunes}
           />
           {runeCount.find((r) => r.id === id)?.count && (
             <span className={`${styles.fixed} ${styles.nomargin}`}>
