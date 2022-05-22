@@ -37,7 +37,7 @@ body:before {
   position: fixed;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: 10%;
   left: 0;
   display: flex;
   align-items: center;
@@ -45,7 +45,6 @@ body:before {
   color: #d7d5c5;
   z-index: -1;
   font-size: 9vw;
-  padding-bottom: 20rem;
   opacity: 0.04;
   pointer-events: none;
 }
