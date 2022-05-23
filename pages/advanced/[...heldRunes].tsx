@@ -1,14 +1,14 @@
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { Routes } from "../../infrastructure/routes";
-import EnterRunes from "../../components/atoms/EnterRunes/EnterRunes";
-import SoulCounter from "../../components/atoms/SoulCounter/SoulCounter";
-import useSoulCounter from "../../components/atoms/SoulCounter/useSoulCounter";
 import { CalcReturn, calculateHighestFirst } from "../../utils/calculate";
+import EnterRunes from "../../components/atoms/EnterRunes/EnterRunes";
+import SoulCounter from "../../components/atoms/SoulCounter";
+import useSoulCounter from "../../components/atoms/SoulCounter/useSoulCounter";
 import Modal from "../../components/atoms/Modal/Modal";
-import { useState } from "react";
 import useModal from "../../components/atoms/Modal/useModal";
-import styles from "./HeldRunes.module.css";
 import ExperimentalHeader from "../../components/atoms/Header/ExperimentalHeader";
+import styles from "./HeldRunes.module.css";
 
 export default () => {
   const {
