@@ -58,11 +58,11 @@
 .ValueValue {
   text-align: right;
 
-  &[data-overunder="under"] {
+  &[data-overunder="Under"] {
     color: red;
   }
 
-  &[data-overunder="over"] {
+  &[data-overunder="Over"] {
     color: green;
   }
 }

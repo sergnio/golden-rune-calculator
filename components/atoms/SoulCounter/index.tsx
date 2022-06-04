@@ -18,6 +18,11 @@ const SoulContainer = ({
   const [overlayOpen, setOverlayOpen] = useState<boolean>(false);
   const total = runeTotal(runeCount);
   const needed = runesNeeded - (runesHeld + total);
+  const resetAll = () => {
+    reset();
+    setRunesHeld(0);
+    setRunesNeeded(0);
+  };
 
   return (
     <>
@@ -59,7 +64,7 @@ const SoulContainer = ({
         needed={needed}
         held={runesHeld}
         total={total}
-        reset={reset}
+        reset={resetAll}
         setOpenOverlay={setOverlayOpen}
       />
       <ValueOverlay

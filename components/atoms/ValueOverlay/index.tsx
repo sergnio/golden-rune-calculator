@@ -20,7 +20,7 @@ const ValueOverlay: React.FC<Props> = ({
 }) => {
   const [localHeld, setLocalHeld] = useState<number>(runesHeld);
   const [localNeeded, setLocalNeeded] = useState<number>(runesNeeded);
-  const haveEnough = localNeeded - localHeld <= 0;
+  const haveEnough = localNeeded - localHeld < 0;
 
   useEffect(() => {
     setLocalHeld(runesHeld);

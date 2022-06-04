@@ -9,6 +9,29 @@ interface Props {
   setOpenOverlay: Dispatch<SetStateAction<boolean>>;
 }
 
+enum OverUnder {
+  Over = "Over",
+  Under = "Under",
+  Equal = "Equal",
+}
+
+const getOverUnder = (value: number): OverUnder => {
+  if (value > 0) {
+    return OverUnder["Under"];
+  }
+  if (value < 0) {
+    return OverUnder["Over"];
+  }
+  return OverUnder["Equal"];
+};
+
+const getSign = (overUnder: OverUnder): string => {
+  if (overUnder === OverUnder["Over"]) {
+    return "+";
+  }
+  return "";
+};
+
 const StickyFooter = ({
   needed,
   total,
@@ -16,7 +39,8 @@ const StickyFooter = ({
   reset,
   setOpenOverlay,
 }: Props) => {
-  const neededSign = needed < 0 ? "+" : "";
+  const overUnder = getOverUnder(needed);
+  const neededSign = getSign(overUnder);
   const neededText = `${neededSign}${-1 * needed}`;
   return (
     <div className={styles.StickyFooter}>
@@ -38,10 +62,7 @@ const StickyFooter = ({
             </div>
             <div className={styles.Value}>
               <div className={styles.ValueLabel}>Needed:</div>
-              <div
-                className={styles.ValueValue}
-                data-overunder={needed <= 0 ? "over" : "under"}
-              >
+              <div className={styles.ValueValue} data-overunder={overUnder}>
                 {neededText}
               </div>
             </div>
