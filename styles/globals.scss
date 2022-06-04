@@ -6,10 +6,12 @@
 
 :root {
   --background-clr: #10130f;
+  --color-orange-light: #f1a656;
+  --color-orange-dark: #b96710;
   --site-padding: 0.5rem;
   --table-min-width: 100%;
 
-  @media screen and (min-width: 64rem) {
+  @media screen and (min-width: 48rem) {
     --site-padding: 1rem;
     --table-min-width: 28rem;
   }
@@ -62,11 +64,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #f1a656;
-}
-
-a:visited {
-  color: #b96710;
+  color: var(--color-orange-light);
 }
 
 button {

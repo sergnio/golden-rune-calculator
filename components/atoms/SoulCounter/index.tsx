@@ -13,12 +13,14 @@ const SoulContainer = ({
 }: Props) => (
   <>
     <div className={styles.Container}>
-      {allRunes.map(({ id, label }) => {
+      {allRunes.map(({ id, label, soulsGiven }) => {
         const totalRunes = runeCount.find((r) => r.id === id)?.count;
+
         return (
           <div key={id} className={styles.Row}>
             <div>
-              <div className={styles.label}>{label}</div>
+              <div className={styles.Label}>{label}</div>
+              <div className={styles.SubLabel}>{soulsGiven} Runes</div>
             </div>
             <div>
               <div className={styles.controls}>
@@ -27,10 +29,7 @@ const SoulContainer = ({
                   disabled={!totalRunes}
                   onClick={decrease(id)}
                 >
-                  -
-                </button>
-                <button className={styles.button} onClick={increase(id)}>
-                  +
+                  <span>-</span>
                 </button>
                 <input
                   className={styles.input}
@@ -38,6 +37,9 @@ const SoulContainer = ({
                   onChange={setExactCount(id)}
                   value={totalRunes}
                 />
+                <button className={styles.button} onClick={increase(id)}>
+                  +
+                </button>
               </div>
             </div>
           </div>
