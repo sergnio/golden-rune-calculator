@@ -1,6 +1,7 @@
-import { ChangeEvent, useState } from "react";
-import { allRunes, getRuneById } from "../../../constants/runes";
-import { replaceRune } from "../../../utils/runeUtils";
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import { allRunes, getRuneById } from "@/constants/runes";
+import { runeTotal } from "@/utils/calculate";
+import { replaceRune } from "@/utils/runeUtils";
 
 export type SoulCounterReturn = {
   increase: (id: number) => () => void;
@@ -8,12 +9,21 @@ export type SoulCounterReturn = {
   reset(): void;
   runeCount: InventoryRune[];
   setExactCount: (id: number) => (e: ChangeEvent<HTMLInputElement>) => void;
+  total: number;
+  needed: number;
+  totalNeeded: number;
+  held: number;
+  setNeeded: Dispatch<SetStateAction<number>>;
+  setHeld: Dispatch<SetStateAction<number>>;
 };
 
 export default (): SoulCounterReturn => {
   const [runeCount, setCount] = useState<InventoryRune[]>(
     allRunes.map((rune) => ({ ...rune, count: 0 }))
   );
+
+  const [held, setHeld] = useState<number>(0);
+  const [needed, setNeeded] = useState<number>(0);
 
   const increase = (id: number) => () => {
     const foundRune = runeCount.find((r) => r.id === id);
@@ -36,6 +46,8 @@ export default (): SoulCounterReturn => {
 
   const reset = () => {
     setCount([]);
+    setHeld(0);
+    setNeeded(0);
   };
 
   const setExactCount = (id: number) => (e: ChangeEvent<HTMLInputElement>) => {
@@ -57,5 +69,20 @@ export default (): SoulCounterReturn => {
     }
   };
 
-  return { reset, decrease, increase, runeCount, setExactCount };
+  const total = runeTotal(runeCount);
+  const totalNeeded = needed - (held + total);
+
+  return {
+    reset,
+    decrease,
+    increase,
+    runeCount,
+    setExactCount,
+    total,
+    totalNeeded,
+    needed,
+    held,
+    setNeeded,
+    setHeld,
+  };
 };

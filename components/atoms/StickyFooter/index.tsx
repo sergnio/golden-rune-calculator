@@ -1,13 +1,10 @@
 import { Dispatch, SetStateAction } from "react";
+import { SoulCounterReturn } from "@/components/atoms/SoulCounter/useSoulCounter";
 import styles from "./styles.module.scss";
 
-interface Props {
-  needed: number;
-  total: number;
-  held: number;
-  reset: () => void;
+type Props = {
   setOpenOverlay: Dispatch<SetStateAction<boolean>>;
-}
+} & SoulCounterReturn;
 
 enum OverUnder {
   Over = "Over",
@@ -33,15 +30,15 @@ const getSign = (overUnder: OverUnder): string => {
 };
 
 const StickyFooter = ({
-  needed,
+  totalNeeded,
   total,
   held,
   reset,
   setOpenOverlay,
 }: Props) => {
-  const overUnder = getOverUnder(needed);
+  const overUnder = getOverUnder(totalNeeded);
   const neededSign = getSign(overUnder);
-  const neededText = `${neededSign}${-1 * needed}`;
+  const neededText = `${neededSign}${-1 * totalNeeded}`;
   return (
     <div className={styles.StickyFooter}>
       <div className={styles.Container}>

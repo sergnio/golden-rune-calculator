@@ -6,23 +6,20 @@ import StickyFooter from "@/components/atoms/StickyFooter";
 import ValueOverlay from "@/components/atoms/ValueOverlay";
 import styles from "./styles.module.scss";
 
-const SoulContainer = ({
-  increase,
-  decrease,
-  reset,
-  runeCount,
-  setExactCount,
-}: Props) => {
-  const [runesHeld, setRunesHeld] = useState<number>(0);
-  const [runesNeeded, setRunesNeeded] = useState<number>(0);
+const SoulContainer = (props: Props) => {
+  const {
+    increase,
+    decrease,
+    reset,
+    runeCount,
+    setExactCount,
+    total,
+    held,
+    needed,
+    setHeld,
+    setNeeded,
+  } = props;
   const [overlayOpen, setOverlayOpen] = useState<boolean>(false);
-  const total = runeTotal(runeCount);
-  const needed = runesNeeded - (runesHeld + total);
-  const resetAll = () => {
-    reset();
-    setRunesHeld(0);
-    setRunesNeeded(0);
-  };
 
   return (
     <>
@@ -60,21 +57,8 @@ const SoulContainer = ({
           );
         })}
       </div>
-      <StickyFooter
-        needed={needed}
-        held={runesHeld}
-        total={total}
-        reset={resetAll}
-        setOpenOverlay={setOverlayOpen}
-      />
-      <ValueOverlay
-        open={overlayOpen}
-        setOpen={setOverlayOpen}
-        runesHeld={runesHeld}
-        runesNeeded={runesNeeded}
-        setRunesHeld={setRunesHeld}
-        setRunesNeeded={setRunesNeeded}
-      />
+      <StickyFooter setOpenOverlay={setOverlayOpen} {...props} />
+      <ValueOverlay open={overlayOpen} setOpen={setOverlayOpen} {...props} />
     </>
   );
 };

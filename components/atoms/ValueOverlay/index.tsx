@@ -1,31 +1,28 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { SoulCounterReturn } from "@/components/atoms/SoulCounter/useSoulCounter";
 import styles from "./styles.module.scss";
 
 type Props = {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
-  runesHeld: number;
-  runesNeeded: number;
-  setRunesHeld: Dispatch<SetStateAction<number>>;
-  setRunesNeeded: Dispatch<SetStateAction<number>>;
-};
+} & SoulCounterReturn;
 
 const ValueOverlay: React.FC<Props> = ({
   open,
   setOpen,
-  runesHeld,
-  runesNeeded,
-  setRunesHeld,
-  setRunesNeeded,
+  held,
+  needed,
+  setHeld,
+  setNeeded,
 }) => {
-  const [localHeld, setLocalHeld] = useState<number>(runesHeld);
-  const [localNeeded, setLocalNeeded] = useState<number>(runesNeeded);
+  const [localHeld, setLocalHeld] = useState<number>(held);
+  const [localNeeded, setLocalNeeded] = useState<number>(needed);
   const haveEnough = localNeeded - localHeld < 0;
 
   useEffect(() => {
-    setLocalHeld(runesHeld);
-    setLocalNeeded(runesNeeded);
-  }, [runesHeld, runesNeeded]);
+    setLocalHeld(held);
+    setLocalNeeded(needed);
+  }, [held, needed]);
 
   return (
     <div className={styles.Overlay} data-open={open}>
@@ -37,8 +34,8 @@ const ValueOverlay: React.FC<Props> = ({
           className={styles.Form}
           onSubmit={(event) => {
             event.preventDefault();
-            setRunesHeld(localHeld);
-            setRunesNeeded(localNeeded);
+            setHeld(localHeld);
+            setNeeded(localNeeded);
             setOpen(false);
           }}
         >
