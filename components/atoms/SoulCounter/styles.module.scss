@@ -1,3 +1,5 @@
+@import '@/styles/button.scss';
+
 .Container {
   display: inline-flex;
   flex-direction: column;
@@ -57,13 +59,9 @@
 }
 
 .button {
-  background-color: transparent;
-  border: 1px solid currentColor;
-  color: inherit;
+  @extend %Button;
   width: 3rem;
   height: 3rem;
-  font-size: 1rem;
-  padding: 0;
 }
 
 .input {

@@ -1,0 +1,26 @@
+@import '@/styles/tools.scss';
+
+%Button {
+  --inset: 0.25rem;
+  @include resetButton;
+  text-align: center;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: absolute;
+    inset: 0;
+  }
+
+  &:before {
+    left: var(--inset);
+    right: var(--inset);
+  }
+
+  &:after {
+    top: var(--inset);
+    bottom: var(--inset);
+  }
+}
