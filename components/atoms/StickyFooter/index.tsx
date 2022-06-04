@@ -1,17 +1,55 @@
+import { Dispatch, SetStateAction } from "react";
 import styles from "./styles.module.scss";
 
 interface Props {
+  needed: number;
   total: number;
+  held: number;
   reset: () => void;
+  setOpenOverlay: Dispatch<SetStateAction<boolean>>;
 }
 
-export default ({ total, reset }: Props) => (
-  <div className={styles.StickyFooter}>
-    <div className={styles.Container}>
-      <button className={styles.Button} onClick={reset}>
-        reset
-      </button>
-      <div>Total: {total}</div>
+const StickyFooter = ({
+  needed,
+  total,
+  held,
+  reset,
+  setOpenOverlay,
+}: Props) => {
+  const neededSign = needed < 0 ? "+" : "";
+  const neededText = `${neededSign}${-1 * needed}`;
+  return (
+    <div className={styles.StickyFooter}>
+      <div className={styles.Container}>
+        <button className={styles.Button} onClick={reset}>
+          reset
+        </button>
+        <div className={styles.Section}>
+          <button
+            className={styles.Button}
+            onClick={() => setOpenOverlay(true)}
+          >
+            edit
+          </button>
+          <div className={styles.Values}>
+            <div className={styles.Value}>
+              <div className={styles.ValueLabel}>Total:</div>
+              <div className={styles.ValueValue}>{held + total}</div>
+            </div>
+            <div className={styles.Value}>
+              <div className={styles.ValueLabel}>Needed:</div>
+              <div
+                className={styles.ValueValue}
+                data-overunder={needed <= 0 ? "over" : "under"}
+              >
+                {neededText}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-);
+  );
+};
+
+export default StickyFooter;

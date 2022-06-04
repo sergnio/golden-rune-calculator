@@ -1,4 +1,4 @@
-@import '@/styles/button.scss';
+@import '@/styles/extends.scss';
 
 .Container {
   display: inline-flex;
@@ -65,22 +65,10 @@
 }
 
 .input {
-  appearance: none;
-  -moz-appearance: textfield;
-  background-color: transparent;
-  border: 1px solid currentColor;
-  color: inherit;
+  @extend %NumberInput;
   width: 5em;
   padding: 1rem;
   width: 4rem;;
   height: 3rem;
-  text-align: right;
   font-size: 1rem;
-  font-variant-numeric: tabular-nums;
-
-  &::-webkit-inner-spin-button, 
-  &::-webkit-outer-spin-button {
-    appearance: none;
-    margin: 0;
-  }
 }

@@ -1,4 +1,4 @@
-@import '@/styles/button.scss';
+@import '@/styles/extends.scss';
 
 .StickyFooter {
   position: sticky;
@@ -34,8 +34,35 @@
   align-items: center;
 }
 
+.Section {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 .Button {
   @extend %Button;
   padding: 0.6rem 1rem;
-  text-shadow: inherit;
+}
+
+.Values {
+  text-align: left;
+}
+
+.Value {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.ValueValue {
+  text-align: right;
+
+  &[data-overunder="under"] {
+    color: red;
+  }
+
+  &[data-overunder="over"] {
+    color: green;
+  }
 }

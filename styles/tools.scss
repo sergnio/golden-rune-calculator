@@ -1,12 +1,36 @@
 @mixin resetButton() {
-    background: none;
-    color: inherit;
-    font: inherit;
-    text-decoration: inherit;
-    text-align: initial;
-    border: 0;
-    border-radius: 0;
-    padding: 0;
-    margin: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: initial;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  appearance: none;
+}
+
+@mixin resetFieldset() {
+  appearance: none;
+  border: 0;
+  padding: 0;
+}
+
+@mixin resetInput() {
+  appearance: none;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+}
+
+@mixin resetNumberInput() {
+  @include resetInput;
+  -moz-appearance: textfield;
+
+  &::-webkit-inner-spin-button, 
+  &::-webkit-outer-spin-button {
     appearance: none;
+    margin: 0;
+  }
 }

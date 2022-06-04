@@ -5,7 +5,7 @@
 }
 
 :root {
-  --background-clr: #10130f;
+  --color-black: #10130f;
   --color-orange-light: #f1a656;
   --color-orange-dark: #b96710;
   --site-padding: 0.5rem;
@@ -29,7 +29,7 @@ body {
 }
 
 body {
-  background-color: var(--background-clr);
+  background-color: var(--color-black);
   color: #d7d5c5;
   font-family: Garamond, serif;
   font-weight: 400;

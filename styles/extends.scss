@@ -5,6 +5,7 @@
   @include resetButton;
   text-align: center;
   position: relative;
+  padding: 0.6rem 1rem;
 
   &:before,
   &:after {
@@ -23,4 +24,11 @@
     top: var(--inset);
     bottom: var(--inset);
   }
+}
+
+%NumberInput {
+  @include resetNumberInput;
+  border: 1px solid currentColor;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
