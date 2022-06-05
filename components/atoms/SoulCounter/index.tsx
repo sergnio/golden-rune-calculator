@@ -1,25 +1,15 @@
 import { useState } from "react";
-import type { SoulCounterReturn as Props } from "./useSoulCounter";
 import { allRunes } from "@/constants/runes";
-import { runeTotal } from "@/utils/calculate";
 import StickyFooter from "@/components/atoms/StickyFooter";
 import ValueOverlay from "@/components/atoms/ValueOverlay";
+import SummaryOverlay from "@/components/atoms/SummaryOverlay";
+import type { SoulCounterReturn as Props } from "./useSoulCounter";
 import styles from "./styles.module.scss";
 
 const SoulContainer = (props: Props) => {
-  const {
-    increase,
-    decrease,
-    reset,
-    runeCount,
-    setExactCount,
-    total,
-    held,
-    needed,
-    setHeld,
-    setNeeded,
-  } = props;
+  const { increase, decrease, runeCount, setExactCount } = props;
   const [overlayOpen, setOverlayOpen] = useState<boolean>(false);
+  const [summaryOpen, setSummaryOpen] = useState<boolean>(false);
 
   return (
     <>
@@ -57,8 +47,13 @@ const SoulContainer = (props: Props) => {
           );
         })}
       </div>
-      <StickyFooter setOpenOverlay={setOverlayOpen} {...props} />
+      <StickyFooter
+        setSummaryOpen={setSummaryOpen}
+        setOverlayOpen={setOverlayOpen}
+        {...props}
+      />
       <ValueOverlay open={overlayOpen} setOpen={setOverlayOpen} {...props} />
+      <SummaryOverlay open={summaryOpen} setOpen={setSummaryOpen} {...props} />
     </>
   );
 };

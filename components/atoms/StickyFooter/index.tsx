@@ -1,26 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
+import { getOverUnder, OverUnder } from "@/utils/calculate";
 import { SoulCounterReturn } from "@/components/atoms/SoulCounter/useSoulCounter";
 import styles from "./styles.module.scss";
-
-type Props = {
-  setOpenOverlay: Dispatch<SetStateAction<boolean>>;
-} & SoulCounterReturn;
-
-enum OverUnder {
-  Over = "Over",
-  Under = "Under",
-  Equal = "Equal",
-}
-
-const getOverUnder = (value: number): OverUnder => {
-  if (value > 0) {
-    return OverUnder["Under"];
-  }
-  if (value < 0) {
-    return OverUnder["Over"];
-  }
-  return OverUnder["Equal"];
-};
 
 const getSign = (overUnder: OverUnder): string => {
   if (overUnder === OverUnder["Over"]) {
@@ -29,26 +10,41 @@ const getSign = (overUnder: OverUnder): string => {
   return "";
 };
 
+type Props = {
+  setOverlayOpen: Dispatch<SetStateAction<boolean>>;
+  setSummaryOpen: Dispatch<SetStateAction<boolean>>;
+} & SoulCounterReturn;
+
 const StickyFooter = ({
   totalNeeded,
   total,
   held,
   reset,
-  setOpenOverlay,
+  setOverlayOpen,
+  setSummaryOpen,
 }: Props) => {
   const overUnder = getOverUnder(totalNeeded);
   const neededSign = getSign(overUnder);
   const neededText = `${neededSign}${-1 * totalNeeded}`;
+
   return (
     <div className={styles.StickyFooter}>
       <div className={styles.Container}>
-        <button className={styles.Button} onClick={reset}>
-          reset
-        </button>
+        <div className={styles.Section}>
+          <button className={styles.Button} onClick={reset}>
+            reset
+          </button>
+          <button
+            className={styles.Button}
+            onClick={() => setSummaryOpen(true)}
+          >
+            summary
+          </button>
+        </div>
         <div className={styles.Section}>
           <button
             className={styles.Button}
-            onClick={() => setOpenOverlay(true)}
+            onClick={() => setOverlayOpen(true)}
           >
             edit
           </button>
