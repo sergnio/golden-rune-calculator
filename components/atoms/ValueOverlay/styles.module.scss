@@ -70,14 +70,16 @@
 .Fieldset {
   @include resetFieldset;
   display: grid;
-  grid-template-columns: 12rem 1fr;
-  align-items: center
+  grid-template-columns: 10rem 1fr;
+  align-items: center;
+  min-width: 0;
 }
 
 .Input {
   @extend %NumberInput;
   font-size: 1rem;
   padding: 0.5rem 1rem;
+  min-width: 0;
 }
 
 .Message {
