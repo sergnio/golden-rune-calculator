@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MdAdd, MdRemove } from "react-icons/md";
 import { allRunes } from "@/constants/runes";
 import StickyFooter from "@/components/atoms/StickyFooter";
 import ValueOverlay from "@/components/atoms/ValueOverlay";
@@ -30,7 +31,7 @@ const SoulContainer = (props: Props) => {
                     disabled={!totalRunes}
                     onClick={decrease(id)}
                   >
-                    <span>-</span>
+                    <MdRemove />
                   </button>
                   <input
                     className={styles.input}
@@ -39,7 +40,7 @@ const SoulContainer = (props: Props) => {
                     value={totalRunes}
                   />
                   <button className={styles.button} onClick={increase(id)}>
-                    +
+                    <MdAdd />
                   </button>
                 </div>
               </div>

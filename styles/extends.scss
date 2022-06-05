@@ -6,6 +6,9 @@
   text-align: center;
   position: relative;
   padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:before,
   &:after {
@@ -23,6 +26,10 @@
   &:after {
     top: var(--inset);
     bottom: var(--inset);
+  }
+
+  svg {
+    display: block;
   }
 }
 

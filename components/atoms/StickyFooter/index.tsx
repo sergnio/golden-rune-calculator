@@ -1,4 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
+import { GrPowerReset } from "react-icons/gr";
+import { MdOutlineChecklistRtl, MdEdit } from "react-icons/md";
 import { getOverUnder, OverUnder } from "@/utils/calculate";
 import { SoulCounterReturn } from "@/components/atoms/SoulCounter/useSoulCounter";
 import styles from "./styles.module.scss";
@@ -31,14 +33,15 @@ const StickyFooter = ({
     <div className={styles.StickyFooter}>
       <div className={styles.Container}>
         <div className={styles.Section}>
-          <button className={styles.Button} onClick={reset}>
-            reset
+          <button className={styles.Button} data-button="reset" onClick={reset}>
+            <GrPowerReset />
           </button>
           <button
             className={styles.Button}
+            data-button="summary"
             onClick={() => setSummaryOpen(true)}
           >
-            summary
+            <MdOutlineChecklistRtl />
           </button>
         </div>
         <div className={styles.Section}>
@@ -46,7 +49,7 @@ const StickyFooter = ({
             className={styles.Button}
             onClick={() => setOverlayOpen(true)}
           >
-            edit
+            <MdEdit />
           </button>
           <div className={styles.Values}>
             <div className={styles.Value}>

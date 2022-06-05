@@ -43,6 +43,14 @@
 .Button {
   @extend %Button;
   padding: 0.6rem 1rem;
+
+  &[data-button="reset"] {
+    svg {
+      path {
+        stroke: currentColor;
+      }
+    }
+  }
 }
 
 .Values {
