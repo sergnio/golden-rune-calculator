@@ -1,0 +1,76 @@
+@import '@/styles/extends.scss';
+
+.StickyFooter {
+  position: sticky;
+  bottom: 0;
+  margin-left: calc(-1 * var(--site-padding));
+  margin-right: calc(-1 * var(--site-padding));
+  padding: 0.5rem var(--site-padding);
+  display: flex;
+  justify-content: center;
+
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    top: -0.5rem;
+    background: linear-gradient(
+      0deg,
+      rgb(16, 19, 15) 0%,
+      rgb(16, 19, 15, 1) 80%,
+      rgb(16, 19, 15, 0) 100%
+    );
+    z-index: -1;
+  }
+}
+
+.Container {
+  min-width: var(--table-min-width);
+  display: flex;
+  gap: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Section {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.Button {
+  @extend %Button;
+  padding: 0.6rem 1rem;
+
+  &[data-button="reset"] {
+    svg {
+      path {
+        stroke: currentColor;
+      }
+    }
+  }
+}
+
+.Values {
+  text-align: left;
+}
+
+.Value {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.ValueValue {
+  text-align: right;
+
+  &[data-overunder="Under"] {
+    color: red;
+  }
+
+  &[data-overunder="Over"] {
+    color: green;
+  }
+}

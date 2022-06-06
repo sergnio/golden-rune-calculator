@@ -1,0 +1,94 @@
+@import '@/styles/tools.scss';
+@import '@/styles/extends.scss';
+
+.Overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--site-padding);
+
+  &[data-open="false"] {
+    display: none;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-black);
+    z-index: -1;
+    opacity: 0.5;
+  }
+}
+
+.Content {
+  --inset: 0.25rem;
+  padding: 2rem;
+  background-color: var(--color-black);
+  min-width: var(--table-min-width);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: left;
+
+  &:before,
+  &:after {
+    content: "";
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &:before {
+    left: var(--inset);
+    right: var(--inset);
+  }
+
+  &:after {
+    top: var(--inset);
+    bottom: var(--inset);
+  }
+}
+
+.CloseButton {
+  @extend %Button;
+  font-size: 0.9rem;
+  align-self: flex-end;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.Fieldset {
+  @include resetFieldset;
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  align-items: center;
+  min-width: 0;
+}
+
+.Input {
+  @extend %NumberInput;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  min-width: 0;
+}
+
+.Message {
+  &[data-visible="false"] {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.SubmitButton {
+  @extend %Button;
+}

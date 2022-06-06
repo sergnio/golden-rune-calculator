@@ -21,7 +21,7 @@
 
 /* Modal Content/Box */
 .modalContent {
-  background-color: var(--background-clr);
+  background-color: var(--color-black);
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;

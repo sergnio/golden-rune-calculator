@@ -5,6 +5,12 @@ export interface CalcReturn {
   difference?: number;
 }
 
+export enum OverUnder {
+  Over = "Over",
+  Under = "Under",
+  Equal = "Equal",
+}
+
 // checks if the passed in rune + current count is less than our goal
 const isWithin = (rune: Rune, currentCount: number, desiredAmount: number) =>
   rune.soulsGiven + currentCount <= desiredAmount;
@@ -14,6 +20,16 @@ export const runeTotal = (runeCount: InventoryRune[]): number =>
     (previous, current) => previous + current.count * current.soulsGiven,
     0
   );
+
+export const getOverUnder = (value: number): OverUnder => {
+  if (value > 0) {
+    return OverUnder["Under"];
+  }
+  if (value < 0) {
+    return OverUnder["Over"];
+  }
+  return OverUnder["Equal"];
+};
 
 export const calculateHighestFirst = (
   currentCount: number,
