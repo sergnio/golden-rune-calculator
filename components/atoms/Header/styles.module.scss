@@ -32,10 +32,6 @@
   flex-grow: 1;
 }
 
-.experimental {
-  color: red;
-}
-
 .Logo {
   width: 2rem;
   flex-shrink: 0;
@@ -49,7 +45,7 @@
   }
 }
 
-.contribute {
+.Contribute {
   display: flex;
   align-items: center;
   gap: 0.5ch;

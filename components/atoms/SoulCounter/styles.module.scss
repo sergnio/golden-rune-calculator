@@ -1,4 +1,4 @@
-@import '@/styles/extends.scss';
+@import "@/styles/extends.scss";
 
 .Container {
   display: inline-flex;
@@ -68,7 +68,7 @@
   @extend %NumberInput;
   width: 5em;
   padding: 1rem;
-  width: 4rem;;
+  width: 4rem;
   height: 3rem;
   font-size: 1rem;
 }
