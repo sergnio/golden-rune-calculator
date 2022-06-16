@@ -39,7 +39,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding: var(--site-padding);
   position: relative;
-  
+
   &:before {
     content: "RUNE CALCULATOR";
     position: fixed;
@@ -56,10 +56,6 @@ body {
     opacity: 0.04;
     pointer-events: none;
   }
-}
-
-.heldRunes {
-  width: 5em;
 }
 
 a {
