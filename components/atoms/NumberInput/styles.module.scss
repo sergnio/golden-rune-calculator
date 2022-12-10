@@ -1,0 +1,23 @@
+@import "@/styles/tools.scss";
+
+.Input {
+  @include resetNumberInput;
+  padding: 0.475rem 1rem 0.3em;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font: inherit;
+  font-size: 1.25em;
+  text-shadow: 1px 1px 1px black, 3px 3px 3px black;
+
+  &::placeholder {
+    opacity: 0.5;
+    color: inherit;
+  }
+
+  &:focus {
+    border-color: rgba(255, 255, 255, 1);
+    outline: 1px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 3px;
+  }
+}

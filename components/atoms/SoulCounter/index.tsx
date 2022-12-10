@@ -4,6 +4,7 @@ import { allRunes } from "@/constants/runes";
 import StickyFooter from "@/components/atoms/StickyFooter";
 import ValueOverlay from "@/components/atoms/ValueOverlay";
 import SummaryOverlay from "@/components/atoms/SummaryOverlay";
+import NumberInput from "@/components/atoms/NumberInput";
 import type { SoulCounterReturn as Props } from "./useSoulCounter";
 import styles from "./styles.module.scss";
 
@@ -16,8 +17,7 @@ const SoulContainer = (props: Props) => {
     <>
       <div className={styles.Container}>
         {allRunes.map(({ id, label, soulsGiven }) => {
-          const totalRunes = runeCount.find((r) => r.id === id)?.count;
-
+          const totalRunes = runeCount.find((r) => r.id === id)!.count;
           return (
             <div key={id} className={styles.Row}>
               <div>
@@ -33,9 +33,8 @@ const SoulContainer = (props: Props) => {
                   >
                     <MdRemove />
                   </button>
-                  <input
+                  <NumberInput
                     className={styles.input}
-                    type="number"
                     onChange={setExactCount(id)}
                     value={totalRunes}
                   />
