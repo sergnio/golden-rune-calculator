@@ -32,10 +32,3 @@
     display: block;
   }
 }
-
-%NumberInput {
-  @include resetNumberInput;
-  border: 1px solid currentColor;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}

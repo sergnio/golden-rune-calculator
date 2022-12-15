@@ -45,7 +45,7 @@ export default (): SoulCounterReturn => {
   };
 
   const reset = () => {
-    setCount([]);
+    setCount(allRunes.map((rune) => ({ ...rune, count: 0 })));
     setHeld(0);
     setNeeded(0);
   };

@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { SoulCounterReturn } from "@/components/atoms/SoulCounter/useSoulCounter";
+import NumberInput from "@/components/atoms/NumberInput";
 import styles from "./styles.module.scss";
 
 type Props = {
@@ -43,24 +44,26 @@ const ValueOverlay: React.FC<Props> = ({
             <label className={styles.Label} htmlFor="input-held">
               Runes Held
             </label>
-            <input
+            <NumberInput
               id="input-held"
-              type="number"
-              value={localHeld}
-              onChange={(event) => setLocalHeld(parseInt(event.target.value))}
               className={styles.Input}
+              onChange={(event) =>
+                setLocalHeld(parseInt(event.target.value) || 0)
+              }
+              value={localHeld}
             />
           </fieldset>
           <fieldset className={styles.Fieldset}>
             <label className={styles.Label} htmlFor="input-needed">
               Runes Needed
             </label>
-            <input
+            <NumberInput
               id="input-needed"
-              type="number"
-              value={localNeeded}
-              onChange={(event) => setLocalNeeded(parseInt(event.target.value))}
               className={styles.Input}
+              onChange={(event) =>
+                setLocalNeeded(parseInt(event.target.value) || 0)
+              }
+              value={localNeeded}
             />
           </fieldset>
           <div className={styles.Message} data-visible={haveEnough}>
