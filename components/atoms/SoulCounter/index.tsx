@@ -5,6 +5,7 @@ import StickyFooter from "@/components/atoms/StickyFooter";
 import ValueOverlay from "@/components/atoms/ValueOverlay";
 import SummaryOverlay from "@/components/atoms/SummaryOverlay";
 import NumberInput from "@/components/atoms/NumberInput";
+import Button from "@/components/atoms/Button";
 import type { SoulCounterReturn as Props } from "./useSoulCounter";
 import styles from "./styles.module.scss";
 
@@ -26,21 +27,21 @@ const SoulContainer = (props: Props) => {
               </div>
               <div>
                 <div className={styles.controls}>
-                  <button
+                  <Button
                     className={styles.button}
-                    disabled={!totalRunes}
                     onClick={decrease(id)}
+                    disabled={!totalRunes}
                   >
                     <MdRemove />
-                  </button>
+                  </Button>
                   <NumberInput
                     className={styles.input}
                     onChange={setExactCount(id)}
                     value={totalRunes}
                   />
-                  <button className={styles.button} onClick={increase(id)}>
+                  <Button className={styles.button} onClick={increase(id)}>
                     <MdAdd />
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>

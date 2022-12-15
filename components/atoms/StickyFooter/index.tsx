@@ -3,6 +3,7 @@ import { GrPowerReset } from "react-icons/gr";
 import { MdOutlineChecklistRtl, MdEdit } from "react-icons/md";
 import { getOverUnder, OverUnder } from "@/utils/calculate";
 import { SoulCounterReturn } from "@/components/atoms/SoulCounter/useSoulCounter";
+import Button from "@/components/atoms/Button";
 import styles from "./styles.module.scss";
 
 const getSign = (overUnder: OverUnder): string => {
@@ -33,24 +34,17 @@ const StickyFooter = ({
     <div className={styles.StickyFooter}>
       <div className={styles.Container}>
         <div className={styles.Section}>
-          <button className={styles.Button} data-button="reset" onClick={reset}>
+          <Button id="reset" onClick={reset}>
             <GrPowerReset />
-          </button>
-          <button
-            className={styles.Button}
-            data-button="summary"
-            onClick={() => setSummaryOpen(true)}
-          >
+          </Button>
+          <Button onClick={() => setSummaryOpen(true)}>
             <MdOutlineChecklistRtl />
-          </button>
+          </Button>
         </div>
         <div className={styles.Section}>
-          <button
-            className={styles.Button}
-            onClick={() => setOverlayOpen(true)}
-          >
+          <Button onClick={() => setOverlayOpen(true)}>
             <MdEdit />
-          </button>
+          </Button>
           <div className={styles.Values}>
             <div className={styles.Value}>
               <div className={styles.ValueLabel}>Total:</div>

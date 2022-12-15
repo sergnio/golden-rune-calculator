@@ -1,5 +1,4 @@
 @import "@/styles/tools.scss";
-@import "@/styles/extends.scss";
 
 .Form {
   display: flex;
@@ -25,8 +24,4 @@
     opacity: 0;
     pointer-events: none;
   }
-}
-
-.SubmitButton {
-  @extend %Button;
 }
