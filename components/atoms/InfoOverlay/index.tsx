@@ -1,6 +1,9 @@
 import { Dispatch, SetStateAction } from "react";
 import Modal from "@/components/atoms//Modal";
 import styles from "./styles.module.scss";
+import Button from "../Button";
+import { MdEdit, MdOutlineChecklistRtl } from "react-icons/md";
+import { GrPowerReset } from "react-icons/gr";
 
 type Props = {
   open: boolean;
@@ -17,14 +20,36 @@ const InfoOverlay: React.FC<Props> = ({ open, setOpen }) => {
       </p>
       <ol>
         <li>
-          Open the XX overlay and enter the number of runes you have and need.
+          Open the{" "}
+          <Button disabled={true} className={styles.Button} size="small">
+            <MdEdit />
+          </Button>{" "}
+          overlay and enter the number of runes you have and need and hit
+          submit.
         </li>
-        <li>Close the overlay</li>
         <li>
-          Start entering the runes you have in your inventory until the total
-          needed is positive and green.
+          Start entering the runes you have in your inventory until the
+          &ldquo;Needed:&rdquo; is positive and green.
         </li>
-        <li>Open the XX overlay to see which of your runes to consume.</li>
+        <li>
+          Open the{" "}
+          <Button disabled={true} className={styles.Button} size="small">
+            <MdOutlineChecklistRtl />
+          </Button>{" "}
+          overlay to see which of your runes to consume.
+        </li>
+        <li>
+          Click{" "}
+          <Button
+            id="reset"
+            disabled={true}
+            className={styles.Button}
+            size="small"
+          >
+            <GrPowerReset />
+          </Button>{" "}
+          to reset everything and start over.
+        </li>
       </ol>
     </Modal>
   );

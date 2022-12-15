@@ -1,5 +1,3 @@
-@import "@/styles/extends.scss";
-
 .StickyFooter {
   position: sticky;
   bottom: 0;
@@ -38,19 +36,6 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
-}
-
-.Button {
-  @extend %Button;
-  padding: 0.6rem 1rem;
-
-  &[data-button="reset"] {
-    svg {
-      path {
-        stroke: currentColor;
-      }
-    }
-  }
 }
 
 .Values {

@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { SoulCounterReturn } from "@/components/atoms/SoulCounter/useSoulCounter";
 import NumberInput from "@/components/atoms/NumberInput";
 import Modal from "@/components/atoms//Modal";
+import Button from "@/components/atoms/Button";
 import styles from "./styles.module.scss";
 
 type Props = {
@@ -66,9 +67,7 @@ const ValueOverlay: React.FC<Props> = ({
         <div className={styles.Message} data-visible={haveEnough}>
           Looks like you have enough runes already!
         </div>
-        <button className={styles.SubmitButton} type="submit">
-          Submit
-        </button>
+        <Button type="submit">Submit</Button>
       </form>
     </Modal>
   );

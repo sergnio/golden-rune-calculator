@@ -1,5 +1,4 @@
 @import "@/styles/tools.scss";
-@import "@/styles/extends.scss";
 
 .Overlay {
   position: fixed;
@@ -52,7 +51,7 @@
   }
 
   p {
-    font-size: 1.2rem;
+    // font-size: 1.2rem;
 
     &[data-over-under="Over"] span {
       color: green;
@@ -64,7 +63,7 @@
   }
 
   ol {
-    font-size: 1.2rem;
+    // font-size: 1.2rem;
     margin: 0;
     padding-left: 1.125rem;
 
@@ -92,7 +91,5 @@
 }
 
 .CloseButton {
-  @extend %Button;
-  font-size: 0.9rem;
   align-self: flex-end;
 }

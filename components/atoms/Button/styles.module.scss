@@ -1,6 +1,6 @@
 @import "@/styles/tools.scss";
 
-%Button {
+.Button {
   --inset: 0.25rem;
   @include resetButton;
   text-align: center;
@@ -26,6 +26,18 @@
   &:after {
     top: var(--inset);
     bottom: var(--inset);
+  }
+
+  &[data-size="small"] {
+    font-size: 0.9rem;
+  }
+
+  &[data-button="reset"] {
+    svg {
+      path {
+        stroke: currentColor;
+      }
+    }
   }
 
   svg {
