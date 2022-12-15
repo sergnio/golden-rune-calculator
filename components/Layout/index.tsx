@@ -11,10 +11,10 @@ export default ({ children }: Props) => {
   return (
     <>
       <Head>
-        <title>Golden Rune Calculator</title>
+        <title>Elden Ring Golden Rune Calculator</title>
         <meta
           name="description"
-          content="Golden Rune Calculator for Elden Ring"
+          content="A simple calculator to help optimize the number of runes to consume so you don't consume too many in Elden Ring."
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
