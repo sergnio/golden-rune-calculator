@@ -14,23 +14,13 @@ const overUnderText = (
   overUnder: OverUnder
 ) => {
   if (overUnder === OverUnder["Over"]) {
-    return (
-      <>
-        you will have enough runes with{" "}
-        <span>{Math.abs(totalNeeded)} left over.</span>
-      </>
-    );
+    return <span>{Math.abs(totalNeeded)} runes left over</span>;
   }
   if (overUnder === OverUnder["Under"]) {
-    return (
-      <>
-        you will not have enough runes with{" "}
-        <span>{Math.abs(totalNeeded)} still needed.</span>
-      </>
-    );
+    return <span>{Math.abs(totalNeeded)} runes still needed</span>;
   }
 
-  return <>you will have just the right amount of runes!</>;
+  return null;
 };
 
 const SummaryOverlay: React.FC<Props> = ({
@@ -46,24 +36,26 @@ const SummaryOverlay: React.FC<Props> = ({
 
   return (
     <Modal open={open} setOpen={setOpen} title="Summary">
-      <p>
-        You have {held} runes and need {needed} runes.
-      </p>
-      <p>If you consume:</p>
-      <p className={styles.Counts}>
+      <div className={styles.Content}>
+        <p>{held} runes held</p>
         {runeCountHeld.length > 0 ? (
           <>
             {runeCountHeld.map((rune) => (
-              <div key={rune.id}>
-                {rune.count} x {rune.label}
-              </div>
+              <p key={rune.id}>
+                <span className={styles.Count}>{rune.count}</span> &times;{" "}
+                {rune.label}
+              </p>
             ))}
           </>
-        ) : (
-          <div>No runes</div>
-        )}
-      </p>
-      <p data-over-under={overUnder}>{overUnderText(totalNeeded, overUnder)}</p>
+        ) : null}
+        <p>
+          {needed} runes needed
+          <br />
+          <span data-over-under={overUnder}>
+            {overUnderText(totalNeeded, overUnder)}
+          </span>
+        </p>
+      </div>
     </Modal>
   );
 };
