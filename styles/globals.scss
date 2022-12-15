@@ -9,17 +9,18 @@
   --color-orange-light: #f1a656;
   --color-orange-dark: #b96710;
   --site-padding: 0.5rem;
-  --table-min-width: 100%;
+  --table-width: 100%;
 
   @media screen and (min-width: 48rem) {
     --site-padding: 1rem;
-    --table-min-width: 28rem;
+    --table-width: 28rem;
   }
 }
 
 html,
 body {
   font-size: 1.1rem;
+  line-height: 1.2;
   margin: 0;
   min-height: 100%;
 

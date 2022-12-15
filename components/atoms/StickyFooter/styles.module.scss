@@ -25,7 +25,7 @@
 }
 
 .Container {
-  min-width: var(--table-min-width);
+  width: var(--table-width);
   display: flex;
   gap: 0.5rem;
   padding-left: 0.5rem;
@@ -66,11 +66,11 @@
 .ValueValue {
   text-align: right;
 
-  &[data-overunder="Under"] {
+  &[data-over-under="Under"] {
     color: red;
   }
 
-  &[data-overunder="Over"] {
+  &[data-over-under="Over"] {
     color: green;
   }
 }

@@ -12,7 +12,7 @@ const Modal: React.FC<Props> = ({ open, setOpen, children, title }) => {
     <div className={styles.Overlay} data-open={open}>
       <div className={styles.Content}>
         <div className={styles.Header}>
-          <div>{title && <h1 className={styles.H1}>Summary</h1>}</div>
+          <div>{title && <h1 className={styles.H1}>{title}</h1>}</div>
           <button className={styles.CloseButton} onClick={() => setOpen(false)}>
             Close
           </button>
