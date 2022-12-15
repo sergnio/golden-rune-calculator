@@ -46,34 +46,24 @@ const SummaryOverlay: React.FC<Props> = ({
 
   return (
     <Modal open={open} setOpen={setOpen} title="Summary">
-      <div className={styles.CountSection}>
-        <p className={styles.P}>
-          You have {held} runes and need {needed} runes.
-        </p>
-      </div>
-
-      <div className={styles.CountSection}>
-        <p className={styles.P}>If you consume:</p>
-        <div className={styles.Counts}>
-          {runeCountHeld.length > 0 ? (
-            <>
-              {runeCountHeld.map((rune) => (
-                <div key={rune.id} className={styles.Count}>
-                  {rune.count} x {rune.label}
-                </div>
-              ))}
-            </>
-          ) : (
-            <div className={styles.Count}>No runes</div>
-          )}
-        </div>
-      </div>
-
-      <div className={styles.CountSection}>
-        <p className={styles.P} data-over-under={overUnder}>
-          {overUnderText(totalNeeded, overUnder)}
-        </p>
-      </div>
+      <p>
+        You have {held} runes and need {needed} runes.
+      </p>
+      <p>If you consume:</p>
+      <p className={styles.Counts}>
+        {runeCountHeld.length > 0 ? (
+          <>
+            {runeCountHeld.map((rune) => (
+              <div key={rune.id}>
+                {rune.count} x {rune.label}
+              </div>
+            ))}
+          </>
+        ) : (
+          <div>No runes</div>
+        )}
+      </p>
+      <p data-over-under={overUnder}>{overUnderText(totalNeeded, overUnder)}</p>
     </Modal>
   );
 };

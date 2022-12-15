@@ -58,7 +58,7 @@ const StickyFooter = ({
             </div>
             <div className={styles.Value}>
               <div className={styles.ValueLabel}>Needed:</div>
-              <div className={styles.ValueValue} data-overunder={overUnder}>
+              <div className={styles.ValueValue} data-over-under={overUnder}>
                 {neededText}
               </div>
             </div>

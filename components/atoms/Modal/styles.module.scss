@@ -28,9 +28,7 @@
   --inset: 0.25rem;
   padding: 2rem;
   background-color: var(--color-black);
-  min-width: var(--table-min-width);
-  display: flex;
-  flex-direction: column;
+  width: var(--table-width);
   position: relative;
   text-align: left;
 
@@ -51,6 +49,33 @@
   &:after {
     top: var(--inset);
     bottom: var(--inset);
+  }
+
+  p {
+    font-size: 1.2rem;
+
+    &[data-over-under="Over"] span {
+      color: green;
+    }
+
+    &[data-over-under="Under"] span {
+      color: red;
+    }
+  }
+
+  ol {
+    font-size: 1.2rem;
+    margin: 0;
+    padding-left: 1.125rem;
+
+    li {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
   }
 }
 
