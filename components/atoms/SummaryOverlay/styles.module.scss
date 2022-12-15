@@ -1,5 +1,18 @@
-.Counts {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.Content {
+  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+}
+
+.Count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: baseline;
+  border-radius: 50%;
+  background-color:rgb(85, 82, 63, 0.5);
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-orange-light);
 }

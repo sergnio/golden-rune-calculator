@@ -77,3 +77,13 @@ img {
 svg {
   fill: currentColor;
 }
+
+* {
+  &[data-over-under="Under"] {
+    color: red;
+  }
+
+  &[data-over-under="Over"] {
+    color: green;
+  }
+}

@@ -50,12 +50,4 @@
 
 .ValueValue {
   text-align: right;
-
-  &[data-over-under="Under"] {
-    color: red;
-  }
-
-  &[data-over-under="Over"] {
-    color: green;
-  }
 }
