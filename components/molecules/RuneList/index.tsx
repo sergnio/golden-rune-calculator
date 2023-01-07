@@ -1,7 +1,7 @@
 import { MdAdd, MdRemove } from "react-icons/md";
 import NumberInput from "components/atoms/NumberInput";
 import Button from "components/atoms/Button";
-import { SoulCounterReturn } from "components/organism/SoulCounter/useSoulCounter";
+import { SoulCounterReturn } from "components/organisms/SoulCounter/useSoulCounter";
 import styles from "./styles.module.scss";
 
 const RuneList: React.FC<{ runes: Rune[] } & SoulCounterReturn> = ({

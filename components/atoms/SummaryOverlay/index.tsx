@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { SoulCounterReturn } from "components/organism/SoulCounter/useSoulCounter";
+import { SoulCounterReturn } from "components/organisms/SoulCounter/useSoulCounter";
 import Modal from "components/atoms/Modal";
 import { getOverUnder, OverUnder } from "utils/calculate";
 import styles from "./styles.module.scss";

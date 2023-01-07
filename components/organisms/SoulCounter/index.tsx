@@ -4,7 +4,7 @@ import StickyFooter from "components/atoms/StickyFooter";
 import ValueOverlay from "components/atoms/ValueOverlay";
 import SummaryOverlay from "components/atoms/SummaryOverlay";
 import type { SoulCounterReturn as Props } from "./useSoulCounter";
-import RuneList from "components/RuneList";
+import RuneList from "components/molecules/RuneList";
 import styles from "./styles.module.scss";
 
 const SoulContainer = (props: Props) => {
