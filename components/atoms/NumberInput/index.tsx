@@ -16,6 +16,7 @@ export default ({ id, className, value, onChange }: Props) => {
       id={id}
       className={classnames([className, styles.Input])}
       type="number"
+      pattern="[0-9]*"
       onChange={onChange}
       value={isZero ? "" : `${value}`}
       placeholder="0"
