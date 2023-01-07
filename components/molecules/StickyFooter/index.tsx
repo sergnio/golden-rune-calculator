@@ -28,14 +28,14 @@ const StickyFooter = ({ setOverlayOpen, setSummaryOpen }: Props) => {
     <div className={styles.StickyFooter}>
       <div className={styles.Container}>
         <div className={styles.Section}>
-          <Button id="reset" onClick={reset}>
-            <GrPowerReset />
-          </Button>
           <Button onClick={() => setSummaryOpen(true)}>
             <MdOutlineChecklistRtl />
           </Button>
         </div>
         <div className={styles.Section}>
+          <Button id="reset" onClick={reset}>
+            <GrPowerReset />
+          </Button>
           <Button onClick={() => setOverlayOpen(true)}>
             <MdEdit />
           </Button>

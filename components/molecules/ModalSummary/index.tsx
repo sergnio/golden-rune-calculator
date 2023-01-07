@@ -11,10 +11,20 @@ type Props = {
 
 const overUnderText = (totalNeeded: number, overUnder: OverUnder) => {
   if (overUnder === OverUnder["Over"]) {
-    return <span>{Math.abs(totalNeeded)} runes left over</span>;
+    return (
+      <>
+        <span>Runes Left</span>{" "}
+        <span data-over-under={overUnder}>+{Math.abs(totalNeeded)}</span>
+      </>
+    );
   }
   if (overUnder === OverUnder["Under"]) {
-    return <span>{Math.abs(totalNeeded)} runes still needed</span>;
+    return (
+      <>
+        <span></span>{" "}
+        <span data-over-under={overUnder}>{Math.abs(totalNeeded)}</span>
+      </>
+    );
   }
 
   return null;
@@ -29,24 +39,28 @@ const ModalSummary: React.FC<Props> = ({ open, setOpen }) => {
   return (
     <Modal open={open} setOpen={setOpen} title="Summary">
       <div className={styles.Content}>
-        <p>{held} runes held</p>
+        <p className={styles.Row}>
+          <span>Runes Held</span> <span>{held}</span>
+        </p>
+        <p className={styles.Row}>
+          <span>Runes Needed</span> <span>{needed}</span>
+        </p>
         {runeCountHeld.length > 0 ? (
           <>
-            {runeCountHeld.map((rune) => (
-              <p key={rune.souls}>
-                <span className={styles.Count}>{rune.count}</span> &times;{" "}
-                {rune.name}
-              </p>
+            {runeCountHeld.map((rune, index) => (
+              <>
+                <p key={rune.souls} className={styles.Row}>
+                  <span>{index === 0 && <>Consume</>}</span>
+                  <span>
+                    <span className={styles.Count}>{rune.count}</span> &times;{" "}
+                    {rune.name}
+                  </span>
+                </p>
+              </>
             ))}
           </>
         ) : null}
-        <p>
-          {needed} runes needed
-          <br />
-          <span data-over-under={overUnder}>
-            {overUnderText(totalNeeded, overUnder)}
-          </span>
-        </p>
+        <p className={styles.Row}>{overUnderText(totalNeeded, overUnder)}</p>
       </div>
     </Modal>
   );

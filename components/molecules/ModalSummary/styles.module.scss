@@ -1,4 +1,6 @@
 .Content {
+  margin-top: 2rem;
+
   p {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
@@ -11,8 +13,13 @@
   justify-content: center;
   vertical-align: baseline;
   border-radius: 50%;
-  background-color:rgb(85, 82, 63, 0.5);
+  background-color: rgb(85, 82, 63, 0.5);
   width: 1.5rem;
   height: 1.5rem;
   color: var(--color-orange-light);
+}
+
+.Row {
+  display: flex;
+  justify-content: space-between;
 }
