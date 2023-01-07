@@ -6,7 +6,7 @@ export enum OverUnder {
 
 export const runeTotal = (runeCount: InventoryRune[]): number =>
   runeCount.reduce(
-    (previous, current) => previous + current.count * current.soulsGiven,
+    (previous, current) => previous + current.count * current.souls,
     0
   );
 

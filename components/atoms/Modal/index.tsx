@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import Button from "@/components/atoms/Button";
+import Button from "components/atoms/Button";
 import styles from "./styles.module.scss";
 
 type Props = {

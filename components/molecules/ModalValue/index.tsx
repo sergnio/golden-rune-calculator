@@ -1,23 +1,23 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { SoulCounterReturn } from "@/components/atoms/SoulCounter/useSoulCounter";
-import NumberInput from "@/components/atoms/NumberInput";
-import Modal from "@/components/atoms//Modal";
-import Button from "@/components/atoms/Button";
+import {
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import NumberInput from "components/atoms/NumberInput";
+import Modal from "components/atoms//Modal";
+import Button from "components/atoms/Button";
+import { SoulCounterContext } from "context/SoulCounter";
 import styles from "./styles.module.scss";
 
 type Props = {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
-} & SoulCounterReturn;
+};
 
-const ValueOverlay: React.FC<Props> = ({
-  open,
-  setOpen,
-  held,
-  needed,
-  setHeld,
-  setNeeded,
-}) => {
+const ModalValue: React.FC<Props> = ({ open, setOpen }) => {
+  const { held, needed, setHeld, setNeeded } = useContext(SoulCounterContext);
   const [localHeld, setLocalHeld] = useState<number>(held);
   const [localNeeded, setLocalNeeded] = useState<number>(needed);
   const haveEnough = localNeeded - localHeld < 0;
@@ -73,4 +73,4 @@ const ValueOverlay: React.FC<Props> = ({
   );
 };
 
-export default ValueOverlay;
+export default ModalValue;

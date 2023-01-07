@@ -1,9 +1,7 @@
-import SoulCounter from "@/components/atoms/SoulCounter";
-import useSoulCounter from "@/components/atoms/SoulCounter/useSoulCounter";
+import SoulCounter from "components/organisms/SoulCounter";
 
 const Index = () => {
-  const props = useSoulCounter();
-  return <SoulCounter {...props} />;
+  return <SoulCounter />;
 };
 
 export default Index;

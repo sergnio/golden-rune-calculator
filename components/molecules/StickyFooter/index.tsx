@@ -1,9 +1,9 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
 import { GrPowerReset } from "react-icons/gr";
 import { MdOutlineChecklistRtl, MdEdit } from "react-icons/md";
-import { getOverUnder, OverUnder } from "@/utils/calculate";
-import { SoulCounterReturn } from "@/components/atoms/SoulCounter/useSoulCounter";
-import Button from "@/components/atoms/Button";
+import { getOverUnder, OverUnder } from "utils/calculate";
+import Button from "components/atoms/Button";
+import { SoulCounterContext } from "context/SoulCounter";
 import styles from "./styles.module.scss";
 
 const getSign = (overUnder: OverUnder): string => {
@@ -16,16 +16,10 @@ const getSign = (overUnder: OverUnder): string => {
 type Props = {
   setOverlayOpen: Dispatch<SetStateAction<boolean>>;
   setSummaryOpen: Dispatch<SetStateAction<boolean>>;
-} & SoulCounterReturn;
+};
 
-const StickyFooter = ({
-  totalNeeded,
-  total,
-  held,
-  reset,
-  setOverlayOpen,
-  setSummaryOpen,
-}: Props) => {
+const StickyFooter = ({ setOverlayOpen, setSummaryOpen }: Props) => {
+  const { totalNeeded, total, held, reset } = useContext(SoulCounterContext);
   const overUnder = getOverUnder(totalNeeded);
   const neededSign = getSign(overUnder);
   const neededText = `${neededSign}${-1 * totalNeeded}`;

@@ -1,16 +1,16 @@
 import { Dispatch, SetStateAction } from "react";
-import Modal from "@/components/atoms//Modal";
-import styles from "./styles.module.scss";
-import Button from "../Button";
 import { MdEdit, MdOutlineChecklistRtl } from "react-icons/md";
 import { GrPowerReset } from "react-icons/gr";
+import Modal from "components/atoms//Modal";
+import Button from "components/atoms/Button";
+import styles from "./styles.module.scss";
 
 type Props = {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-const InfoOverlay: React.FC<Props> = ({ open, setOpen }) => {
+const ModalInfo: React.FC<Props> = ({ open, setOpen }) => {
   return (
     <Modal open={open} setOpen={setOpen} title="Instructions">
       <p>
@@ -55,4 +55,4 @@ const InfoOverlay: React.FC<Props> = ({ open, setOpen }) => {
   );
 };
 
-export default InfoOverlay;
+export default ModalInfo;
