@@ -3,24 +3,23 @@ import { allRunes } from "constants/runes";
 import StickyFooter from "components/molecules/StickyFooter";
 import ValueOverlay from "components/molecules/ValueOverlay";
 import SummaryOverlay from "components/molecules/SummaryOverlay";
-import type { SoulCounterReturn as Props } from "./useSoulCounter";
 import RuneList from "components/molecules/RuneList";
+import { SoulCounterContext, useSoulCounter } from "context/SoulCounter";
 
-const SoulContainer = (props: Props) => {
+const SoulContainer = () => {
   const [overlayOpen, setOverlayOpen] = useState<boolean>(false);
   const [summaryOpen, setSummaryOpen] = useState<boolean>(false);
 
   return (
-    <>
-      <RuneList runes={allRunes} {...props} />
+    <SoulCounterContext.Provider value={useSoulCounter()}>
+      <RuneList runes={allRunes} />
       <StickyFooter
         setSummaryOpen={setSummaryOpen}
         setOverlayOpen={setOverlayOpen}
-        {...props}
       />
-      <ValueOverlay open={overlayOpen} setOpen={setOverlayOpen} {...props} />
-      <SummaryOverlay open={summaryOpen} setOpen={setSummaryOpen} {...props} />
-    </>
+      <ValueOverlay open={overlayOpen} setOpen={setOverlayOpen} />
+      <SummaryOverlay open={summaryOpen} setOpen={setSummaryOpen} />
+    </SoulCounterContext.Provider>
   );
 };
 

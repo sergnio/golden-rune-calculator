@@ -1,7 +1,17 @@
-import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import {
+  createContext,
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useState,
+} from "react";
 import { allRunes, getRuneById } from "constants/runes";
 import { runeTotal } from "utils/calculate";
 import { replaceRune } from "utils/runeUtils";
+
+export const SoulCounterContext = createContext<SoulCounterReturn>(
+  {} as SoulCounterReturn
+);
 
 export type SoulCounterReturn = {
   increase: (id: number) => () => void;
@@ -17,7 +27,7 @@ export type SoulCounterReturn = {
   setHeld: Dispatch<SetStateAction<number>>;
 };
 
-export default (): SoulCounterReturn => {
+export const useSoulCounter = (): SoulCounterReturn => {
   const [runeCount, setCount] = useState<InventoryRune[]>(
     allRunes.map((rune) => ({ ...rune, count: 0 }))
   );

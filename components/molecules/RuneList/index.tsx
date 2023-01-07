@@ -1,16 +1,13 @@
+import { useContext } from "react";
 import { MdAdd, MdRemove } from "react-icons/md";
 import NumberInput from "components/atoms/NumberInput";
 import Button from "components/atoms/Button";
-import { SoulCounterReturn } from "components/organisms/SoulCounter/useSoulCounter";
+import { SoulCounterContext } from "context/SoulCounter";
 import styles from "./styles.module.scss";
 
-const RuneList: React.FC<{ runes: Rune[] } & SoulCounterReturn> = ({
-  runes,
-  increase,
-  decrease,
-  runeCount,
-  setExactCount,
-}) => {
+const RuneList: React.FC<{ runes: Rune[] }> = ({ runes }) => {
+  const { increase, decrease, runeCount, setExactCount } =
+    useContext(SoulCounterContext);
   return (
     <div className={styles.Container}>
       {runes.map(({ id, label, soulsGiven }) => {

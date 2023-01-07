@@ -1,13 +1,14 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
 import { SoulCounterReturn } from "components/organisms/SoulCounter/useSoulCounter";
 import Modal from "components/atoms/Modal";
+import { SoulCounterContext } from "context/SoulCounter";
 import { getOverUnder, OverUnder } from "utils/calculate";
 import styles from "./styles.module.scss";
 
 type Props = {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
-} & SoulCounterReturn;
+};
 
 const overUnderText = (
   totalNeeded: SoulCounterReturn["totalNeeded"],
@@ -23,14 +24,9 @@ const overUnderText = (
   return null;
 };
 
-const SummaryOverlay: React.FC<Props> = ({
-  open,
-  held,
-  needed,
-  totalNeeded,
-  setOpen,
-  runeCount,
-}) => {
+const SummaryOverlay: React.FC<Props> = ({ open, setOpen }) => {
+  const { held, needed, totalNeeded, runeCount } =
+    useContext(SoulCounterContext);
   const runeCountHeld = runeCount.filter((rune) => rune.count > 0);
   const overUnder = getOverUnder(totalNeeded);
 
