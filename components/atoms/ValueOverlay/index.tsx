@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { SoulCounterReturn } from "components/atoms/SoulCounter/useSoulCounter";
+import { SoulCounterReturn } from "components/organism/SoulCounter/useSoulCounter";
 import NumberInput from "components/atoms/NumberInput";
 import Modal from "components/atoms//Modal";
 import Button from "components/atoms/Button";
