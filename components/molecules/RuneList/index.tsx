@@ -12,7 +12,7 @@ const RuneList: React.FC<{ runes: Rune[] } & SoulCounterReturn> = ({
   setExactCount,
 }) => {
   return (
-    <>
+    <div className={styles.Container}>
       {runes.map(({ id, label, soulsGiven }) => {
         const totalRunes = runeCount.find((r) => r.id === id)!.count;
         return (
@@ -43,7 +43,7 @@ const RuneList: React.FC<{ runes: Rune[] } & SoulCounterReturn> = ({
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 

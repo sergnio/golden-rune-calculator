@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { allRunes } from "constants/runes";
-import StickyFooter from "components/atoms/StickyFooter";
-import ValueOverlay from "components/atoms/ValueOverlay";
-import SummaryOverlay from "components/atoms/SummaryOverlay";
+import StickyFooter from "components/molecules/StickyFooter";
+import ValueOverlay from "components/molecules/ValueOverlay";
+import SummaryOverlay from "components/molecules/SummaryOverlay";
 import type { SoulCounterReturn as Props } from "./useSoulCounter";
 import RuneList from "components/molecules/RuneList";
-import styles from "./styles.module.scss";
 
 const SoulContainer = (props: Props) => {
   const [overlayOpen, setOverlayOpen] = useState<boolean>(false);
@@ -13,9 +12,7 @@ const SoulContainer = (props: Props) => {
 
   return (
     <>
-      <div className={styles.Container}>
-        <RuneList runes={allRunes} {...props} />
-      </div>
+      <RuneList runes={allRunes} {...props} />
       <StickyFooter
         setSummaryOpen={setSummaryOpen}
         setOverlayOpen={setOverlayOpen}

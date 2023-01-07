@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction } from "react";
-import Modal from "components/atoms//Modal";
-import styles from "./styles.module.scss";
-import Button from "../Button";
 import { MdEdit, MdOutlineChecklistRtl } from "react-icons/md";
 import { GrPowerReset } from "react-icons/gr";
+import Modal from "components/atoms//Modal";
+import Button from "components/atoms/Button";
+import styles from "./styles.module.scss";
 
 type Props = {
   open: boolean;

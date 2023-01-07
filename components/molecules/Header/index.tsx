@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import { MdInfoOutline } from "react-icons/md";
-import Github from "../Github";
-import Rune from "../../../assets/lordrune.png";
+import Github from "components/atoms/Github";
+import InfoOverlay from "components/molecules/InfoOverlay";
+import Rune from "assets/lordrune.png";
 import styles from "./styles.module.scss";
-import InfoOverlay from "../InfoOverlay";
 
 const Header = () => {
   const [infoOpen, setInfoOpen] = useState<boolean>(false);
