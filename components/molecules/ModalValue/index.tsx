@@ -16,7 +16,7 @@ type Props = {
   setOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-const ValueOverlay: React.FC<Props> = ({ open, setOpen }) => {
+const ModalValue: React.FC<Props> = ({ open, setOpen }) => {
   const { held, needed, setHeld, setNeeded } = useContext(SoulCounterContext);
   const [localHeld, setLocalHeld] = useState<number>(held);
   const [localNeeded, setLocalNeeded] = useState<number>(needed);
@@ -73,4 +73,4 @@ const ValueOverlay: React.FC<Props> = ({ open, setOpen }) => {
   );
 };
 
-export default ValueOverlay;
+export default ModalValue;

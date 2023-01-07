@@ -10,7 +10,7 @@ type Props = {
   setOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-const InfoOverlay: React.FC<Props> = ({ open, setOpen }) => {
+const ModalInfo: React.FC<Props> = ({ open, setOpen }) => {
   return (
     <Modal open={open} setOpen={setOpen} title="Instructions">
       <p>
@@ -55,4 +55,4 @@ const InfoOverlay: React.FC<Props> = ({ open, setOpen }) => {
   );
 };
 
-export default InfoOverlay;
+export default ModalInfo;

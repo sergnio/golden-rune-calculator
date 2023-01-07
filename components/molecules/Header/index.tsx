@@ -2,7 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { MdInfoOutline } from "react-icons/md";
 import Github from "components/atoms/Github";
-import InfoOverlay from "components/molecules/InfoOverlay";
+import ModalInfo from "components/molecules/ModalInfo";
 import Rune from "assets/lordrune.png";
 import styles from "./styles.module.scss";
 
@@ -29,7 +29,7 @@ const Header = () => {
           </a>
         </div>
       </nav>
-      <InfoOverlay open={infoOpen} setOpen={setInfoOpen} />
+      <ModalInfo open={infoOpen} setOpen={setInfoOpen} />
     </>
   );
 };

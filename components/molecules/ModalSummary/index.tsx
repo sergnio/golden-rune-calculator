@@ -20,7 +20,7 @@ const overUnderText = (totalNeeded: number, overUnder: OverUnder) => {
   return null;
 };
 
-const SummaryOverlay: React.FC<Props> = ({ open, setOpen }) => {
+const ModalSummary: React.FC<Props> = ({ open, setOpen }) => {
   const { held, needed, totalNeeded, runeCount } =
     useContext(SoulCounterContext);
   const runeCountHeld = runeCount.filter((rune) => rune.count > 0);
@@ -52,4 +52,4 @@ const SummaryOverlay: React.FC<Props> = ({ open, setOpen }) => {
   );
 };
 
-export default SummaryOverlay;
+export default ModalSummary;
