@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction, useContext } from "react";
-import { SoulCounterReturn } from "components/organisms/SoulCounter/useSoulCounter";
 import Modal from "components/atoms/Modal";
 import { SoulCounterContext } from "context/SoulCounter";
 import { getOverUnder, OverUnder } from "utils/calculate";
@@ -10,10 +9,7 @@ type Props = {
   setOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-const overUnderText = (
-  totalNeeded: SoulCounterReturn["totalNeeded"],
-  overUnder: OverUnder
-) => {
+const overUnderText = (totalNeeded: number, overUnder: OverUnder) => {
   if (overUnder === OverUnder["Over"]) {
     return <span>{Math.abs(totalNeeded)} runes left over</span>;
   }
@@ -37,9 +33,9 @@ const SummaryOverlay: React.FC<Props> = ({ open, setOpen }) => {
         {runeCountHeld.length > 0 ? (
           <>
             {runeCountHeld.map((rune) => (
-              <p key={rune.id}>
+              <p key={rune.souls}>
                 <span className={styles.Count}>{rune.count}</span> &times;{" "}
-                {rune.label}
+                {rune.name}
               </p>
             ))}
           </>

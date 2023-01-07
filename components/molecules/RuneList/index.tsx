@@ -10,29 +10,29 @@ const RuneList: React.FC<{ runes: Rune[] }> = ({ runes }) => {
     useContext(SoulCounterContext);
   return (
     <div className={styles.Container}>
-      {runes.map(({ id, label, soulsGiven }) => {
-        const totalRunes = runeCount.find((r) => r.id === id)!.count;
+      {runes.map(({ name, souls }) => {
+        const totalRunes = runeCount.find((r) => r.souls === souls)!.count;
         return (
-          <div key={id} className={styles.Row}>
+          <div key={souls} className={styles.Row}>
             <div>
-              <div>{label}</div>
-              <div className={styles.SubLabel}>{soulsGiven} Runes</div>
+              <div>{name}</div>
+              <div className={styles.SubLabel}>{souls} Runes</div>
             </div>
             <div>
               <div className={styles.Controls}>
                 <Button
                   className={styles.Button}
-                  onClick={decrease(id)}
+                  onClick={decrease(souls)}
                   disabled={!totalRunes}
                 >
                   <MdRemove />
                 </Button>
                 <NumberInput
                   className={styles.Input}
-                  onChange={setExactCount(id)}
+                  onChange={setExactCount(souls)}
                   value={totalRunes}
                 />
-                <Button className={styles.Button} onClick={increase(id)}>
+                <Button className={styles.Button} onClick={increase(souls)}>
                   <MdAdd />
                 </Button>
               </div>

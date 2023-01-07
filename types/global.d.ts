@@ -1,7 +1,6 @@
 type Rune = {
-  id: number;
-  soulsGiven: number;
-  label: string;
+  name: string;
+  souls: number;
 };
 
 type InventoryRune = {
