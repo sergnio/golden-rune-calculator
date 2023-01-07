@@ -22,7 +22,7 @@ const overUnderText = (totalNeeded: number, overUnder: OverUnder) => {
     return (
       <>
         <span></span>{" "}
-        <span data-over-under={overUnder}>{Math.abs(totalNeeded)}</span>
+        <span data-over-under={overUnder}>-{Math.abs(totalNeeded)}</span>
       </>
     );
   }
@@ -46,11 +46,11 @@ const ModalSummary: React.FC<Props> = ({ open, setOpen }) => {
           <span>Runes Needed</span> <span>{needed}</span>
         </p>
         {runeCountHeld.length > 0 ? (
-          <>
+          <section className={styles.List}>
+            <p className={styles.Row}>Use: </p>
             {runeCountHeld.map((rune, index) => (
               <>
                 <p key={rune.souls} className={styles.Row}>
-                  <span>{index === 0 && <>Consume</>}</span>
                   <span>
                     <span className={styles.Count}>{rune.count}</span> &times;{" "}
                     {rune.name}
@@ -58,7 +58,7 @@ const ModalSummary: React.FC<Props> = ({ open, setOpen }) => {
                 </p>
               </>
             ))}
-          </>
+          </section>
         ) : null}
         <p className={styles.Row}>{overUnderText(totalNeeded, overUnder)}</p>
       </div>
