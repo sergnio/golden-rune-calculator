@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
-import { SoulCounterReturn } from "@/components/atoms/SoulCounter/useSoulCounter";
-import Modal from "@/components/atoms/Modal";
-import { getOverUnder, OverUnder } from "@/utils/calculate";
+import { SoulCounterReturn } from "components/atoms/SoulCounter/useSoulCounter";
+import Modal from "components/atoms/Modal";
+import { getOverUnder, OverUnder } from "utils/calculate";
 import styles from "./styles.module.scss";
 
 type Props = {

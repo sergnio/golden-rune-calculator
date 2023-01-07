@@ -1,7 +1,7 @@
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
-import { allRunes, getRuneById } from "@/constants/runes";
-import { runeTotal } from "@/utils/calculate";
-import { replaceRune } from "@/utils/runeUtils";
+import { allRunes, getRuneById } from "constants/runes";
+import { runeTotal } from "utils/calculate";
+import { replaceRune } from "utils/runeUtils";
 
 export type SoulCounterReturn = {
   increase: (id: number) => () => void;

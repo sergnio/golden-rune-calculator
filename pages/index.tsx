@@ -1,5 +1,5 @@
-import SoulCounter from "@/components/atoms/SoulCounter";
-import useSoulCounter from "@/components/atoms/SoulCounter/useSoulCounter";
+import SoulCounter from "components/atoms/SoulCounter";
+import useSoulCounter from "components/atoms/SoulCounter/useSoulCounter";
 
 const Index = () => {
   const props = useSoulCounter();

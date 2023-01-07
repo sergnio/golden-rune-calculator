@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import Modal from "@/components/atoms//Modal";
+import Modal from "components/atoms//Modal";
 import styles from "./styles.module.scss";
 import Button from "../Button";
 import { MdEdit, MdOutlineChecklistRtl } from "react-icons/md";

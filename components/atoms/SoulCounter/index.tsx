@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { MdAdd, MdRemove } from "react-icons/md";
-import { allRunes } from "@/constants/runes";
-import StickyFooter from "@/components/atoms/StickyFooter";
-import ValueOverlay from "@/components/atoms/ValueOverlay";
-import SummaryOverlay from "@/components/atoms/SummaryOverlay";
-import NumberInput from "@/components/atoms/NumberInput";
-import Button from "@/components/atoms/Button";
+import { allRunes } from "constants/runes";
+import StickyFooter from "components/atoms/StickyFooter";
+import ValueOverlay from "components/atoms/ValueOverlay";
+import SummaryOverlay from "components/atoms/SummaryOverlay";
+import NumberInput from "components/atoms/NumberInput";
+import Button from "components/atoms/Button";
 import type { SoulCounterReturn as Props } from "./useSoulCounter";
 import styles from "./styles.module.scss";
 

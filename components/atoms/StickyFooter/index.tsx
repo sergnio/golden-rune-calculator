@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction } from "react";
 import { GrPowerReset } from "react-icons/gr";
 import { MdOutlineChecklistRtl, MdEdit } from "react-icons/md";
-import { getOverUnder, OverUnder } from "@/utils/calculate";
-import { SoulCounterReturn } from "@/components/atoms/SoulCounter/useSoulCounter";
-import Button from "@/components/atoms/Button";
+import { getOverUnder, OverUnder } from "utils/calculate";
+import { SoulCounterReturn } from "components/atoms/SoulCounter/useSoulCounter";
+import Button from "components/atoms/Button";
 import styles from "./styles.module.scss";
 
 const getSign = (overUnder: OverUnder): string => {
