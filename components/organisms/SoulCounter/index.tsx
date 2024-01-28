@@ -5,13 +5,16 @@ import ModalValue from "components/molecules/ModalValue";
 import ModalSummary from "components/molecules/ModalSummary";
 import RuneList from "components/molecules/RuneList";
 import { SoulCounterContext, useSoulCounter } from "context/SoulCounter";
+import ModalStart from "components/molecules/ModalStart";
 
 const SoulContainer = () => {
+  const [startOpen, setStartOpen] = useState<boolean>(true);
   const [overlayOpen, setOverlayOpen] = useState<boolean>(false);
   const [summaryOpen, setSummaryOpen] = useState<boolean>(false);
 
   return (
     <SoulCounterContext.Provider value={useSoulCounter()}>
+      <ModalStart open={startOpen} setOpen={setStartOpen} />
       <RuneList runes={allRunes} />
       <StickyFooter
         setSummaryOpen={setSummaryOpen}

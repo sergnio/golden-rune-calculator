@@ -13,6 +13,31 @@
   grid-template-columns: 10rem 1fr;
   align-items: center;
   min-width: 0;
+  position: relative;
+  z-index: 1;
+  padding: 0.5rem 0;
+
+  &:after {
+    --gradient-offset: var(--site-padding);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(-1 * var(--gradient-offset));
+    right: calc(-1 * var(--gradient-offset));
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(
+      90deg,
+      rgb(85, 82, 63, 0) 0%,
+      rgb(85, 82, 63, 0.5) var(--gradient-offset),
+      rgb(85, 82, 63, 0.5) calc(100% - var(--gradient-offset)),
+      rgb(85, 82, 63, 0) 100%
+    );
+
+    @media screen and (min-width: 64rem) {
+      --gradient-offset: 2rem;
+    }
+  }
 }
 
 .Label {
