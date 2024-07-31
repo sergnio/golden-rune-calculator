@@ -19,6 +19,17 @@ export enum RuneLabel {
   HerosRune4 = "Hero's Rune (4)",
   HerosRune5 = "Hero's Rune (5)",
   LordsRune = "Lord's Rune",
+  BrokenRune = "Broken Rune",
+  ShadowRealmRune1 = "Shadow Realm Rune (1)",
+  ShadowRealmRune2 = "Shadow Realm Rune (2)",
+  ShadowRealmRune3 = "Shadow Realm Rune (3)",
+  ShadowRealmRune4 = "Shadow Realm Rune (4)",
+  ShadowRealmRune5 = "Shadow Realm Rune (5)",
+  ShadowRealmRune6 = "Shadow Realm Rune (6)",
+  ShadowRealmRune7 = "Shadow Realm Rune (7)",
+  LedasRune = "Leda's Rune",
+  RuneOfAnUnsungHero = "Rune of an Unsung Hero",
+  Marikasrune = "Marika's rune",
 }
 
 export const getRuneById = (runeId: number): Rune =>
@@ -104,5 +115,49 @@ export const allRunes: Rune[] = [
   {
     name: RuneLabel.LordsRune,
     souls: 50000,
+  },
+  {
+    name: RuneLabel.BrokenRune,
+    souls: 500,
+  },
+  {
+    name: RuneLabel.ShadowRealmRune1,
+    souls: 7500,
+  },
+  {
+    name: RuneLabel.ShadowRealmRune2,
+    souls: 10000,
+  },
+  {
+    name: RuneLabel.ShadowRealmRune3,
+    souls: 12500,
+  },
+  {
+    name: RuneLabel.ShadowRealmRune4,
+    souls: 15000,
+  },
+  {
+    name: RuneLabel.ShadowRealmRune5,
+    souls: 17500,
+  },
+  {
+    name: RuneLabel.ShadowRealmRune6,
+    souls: 22500,
+  },
+  {
+    name: RuneLabel.ShadowRealmRune7,
+    souls: 30000,
+  },
+  {
+    name: RuneLabel.LedasRune,
+    souls: 40000,
+  },
+  {
+    name: RuneLabel.RuneOfAnUnsungHero,
+    souls: 50000,
+  },
+  {
+    name: RuneLabel.Marikasrune,
+    souls: 80000,
   },
 ];
