@@ -21,8 +21,8 @@ export enum RuneLabel {
   LordsRune = "Lord's Rune",
 }
 
-export const getRuneById = (runeId: number): Rune =>
-  allRunes.find((foundRune) => foundRune.souls === runeId)!;
+export const getRuneByName = (name: string): Rune =>
+  allRunes.find((foundRune) => foundRune.name === name)!;
 
 export const allRunes: Rune[] = [
   {
