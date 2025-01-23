@@ -1,5 +1,6 @@
 "use client";
 
+import { RuneCalc } from "@/components/RuneCalc";
 import { CountRunes, EnterRunes, Summary } from "@/components/Screens";
 import { useState } from "react";
 
@@ -9,7 +10,7 @@ export default function Home() {
   const [screen, setScreen] = useState<Screens>("enter-runes");
 
   return (
-    <div>
+    <RuneCalc>
       <main>
         {screen === "enter-runes" && (
           <EnterRunes nextScreen={() => setScreen("count-runes")} />
@@ -24,6 +25,6 @@ export default function Home() {
           <Summary prevScreen={() => setScreen("count-runes")} />
         )}
       </main>
-    </div>
+    </RuneCalc>
   );
 }

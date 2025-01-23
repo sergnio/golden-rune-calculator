@@ -1,6 +1,9 @@
 import { Pagination } from "./Pagination";
+import { useRuneCalc } from "./RuneCalc";
 
 export const EnterRunes = ({ nextScreen }: { nextScreen: () => void }) => {
+  const runeCalc = useRuneCalc();
+
   return (
     <div>
       <div>Enter Runes</div>
