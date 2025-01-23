@@ -1,7 +1,8 @@
 "use client";
 
+import { EnterRunes } from "@/components/EnterRunes";
 import { RuneCalc } from "@/components/RuneCalc";
-import { CountRunes, EnterRunes, Summary } from "@/components/Screens";
+import { CountRunes, Summary } from "@/components/Screens";
 import { useState } from "react";
 
 type Screens = "enter-runes" | "count-runes" | "summary";
