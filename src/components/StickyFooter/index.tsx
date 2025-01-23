@@ -1,10 +1,8 @@
-// import { GrPowerReset } from "react-icons/gr";
-// import { MdOutlineChecklistRtl, MdEdit } from "react-icons/md";
 import { getOverUnder, OverUnder } from "@/utils/calculate";
-import styles from "./styles.module.scss";
 import { useRuneCalc } from "../RuneCalc";
-import Button from "../Button";
+import { Button } from "../Button";
 import { useScreens } from "../Screens";
+import styles from "./styles.module.scss";
 
 const getSign = (overUnder: OverUnder): string => {
   if (overUnder === OverUnder["Over"]) {
@@ -13,7 +11,7 @@ const getSign = (overUnder: OverUnder): string => {
   return "";
 };
 
-const StickyFooter = () => {
+export const StickyFooter = () => {
   const { runesHeld, totalRunes, remainingNeeded } = useRuneCalc();
   const { prevScreen, nextScreen, screen } = useScreens();
 
@@ -56,5 +54,3 @@ const StickyFooter = () => {
     </div>
   );
 };
-
-export default StickyFooter;

@@ -11,7 +11,7 @@ type Props = {
   HTMLButtonElement
 >;
 
-const Button = ({ children, id, size, className, ...rest }: Props) => {
+export const Button = ({ children, id, size, className, ...rest }: Props) => {
   return (
     <button
       className={classnames([styles.Button, className])}
@@ -23,5 +23,3 @@ const Button = ({ children, id, size, className, ...rest }: Props) => {
     </button>
   );
 };
-
-export default Button;

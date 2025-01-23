@@ -1,6 +1,6 @@
 import { MdAdd, MdRemove } from "react-icons/md";
 import { NumberInput } from "@/components/NumberInput";
-import Button from "@/components/Button";
+import { Button } from "@/components/Button";
 import { useRuneCalc } from "../RuneCalc";
 import styles from "./styles.module.scss";
 

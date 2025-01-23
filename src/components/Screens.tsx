@@ -1,8 +1,4 @@
-import { createContext, useContext, useState } from "react";
-import { EnterRunes } from "./EnterRunes";
-import { Summary } from "./Summary";
-import StickyFooter from "./StickyFooter";
-import { RuneList } from "./RuneList";
+import { createContext, PropsWithChildren, useContext, useState } from "react";
 
 const screens = ["enter-runes", "count-runes", "summary"] as const;
 type Screens = (typeof screens)[number];
@@ -26,7 +22,7 @@ export const useScreens = () => {
   return context;
 };
 
-export const Screens = () => {
+export const Screens = ({ children }: PropsWithChildren) => {
   const [screen, setScreen] = useState<Screens>(screens[0]);
   const screenIndex = screens.indexOf(screen);
 
@@ -46,12 +42,7 @@ export const Screens = () => {
         nextScreen,
       }}
     >
-      <main>
-        {screen === "enter-runes" && <EnterRunes />}
-        {screen === "count-runes" && <RuneList />}
-        {screen === "summary" && <Summary />}
-        <StickyFooter />
-      </main>
+      {children}
     </ScreensProvider>
   );
 };
