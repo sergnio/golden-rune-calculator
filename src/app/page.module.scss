@@ -1,0 +1,14 @@
+.Container {
+  height: 100%;
+  padding: var(--site-padding) var(--site-padding) 0 var(--site-padding);
+  display: flex;
+  flex-direction: column;
+}
+
+.Screen {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
