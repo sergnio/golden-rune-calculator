@@ -1,7 +1,7 @@
-@import "@/styles/tools.scss";
+@use "@/styles/tools.scss";
 
 .Input {
-  @include resetNumberInput;
+  @include tools.resetNumberInput;
   padding: 0.475rem 1rem 0.3em;
   border: 1px solid rgba(255, 255, 255, 0.5);
   text-align: right;

@@ -1,8 +1,8 @@
-@import "@/styles/tools.scss";
+@use "@/styles/tools.scss";
 
 .Button {
   --inset: 0.25rem;
-  @include resetButton;
+  @include tools.resetButton;
   text-align: center;
   position: relative;
   padding: 0.6rem 1rem;

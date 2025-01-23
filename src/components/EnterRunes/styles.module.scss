@@ -1,4 +1,5 @@
-@import "@/styles/tools.scss";
+@use "@/styles/tools.scss";
+
 
 .Form {
   display: flex;
@@ -8,7 +9,7 @@
 }
 
 .Fieldset {
-  @include resetFieldset;
+  @include tools.resetFieldset;
   display: grid;
   grid-template-columns: 10rem 1fr;
   align-items: center;
