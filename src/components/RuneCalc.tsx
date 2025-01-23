@@ -57,8 +57,6 @@ export const RuneCalc = ({ children }: React.PropsWithChildren) => {
 
   const remainingNeeded = runesNeeded - (runesHeld + totalRunes);
 
-  console.log(remainingNeeded);
-
   return (
     <RuneCalcProvider
       value={{

@@ -1,7 +1,6 @@
 import { getOverUnder, OverUnder } from "@/utils/calculate";
 import { useRuneCalc } from "../RuneCalc";
 import styles from "./styles.module.scss";
-import Button from "../Button";
 
 const overUnderText = (totalNeeded: number, overUnder: OverUnder) => {
   if (overUnder === OverUnder["Over"]) {
@@ -24,7 +23,7 @@ const overUnderText = (totalNeeded: number, overUnder: OverUnder) => {
   return null;
 };
 
-export const Summary = ({ prevScreen }: { prevScreen: () => void }) => {
+export const Summary = () => {
   const { runes, runesHeld, runesNeeded, remainingNeeded } = useRuneCalc();
 
   const heldRunes = runes.filter((rune) => rune.count > 0);
@@ -54,7 +53,6 @@ export const Summary = ({ prevScreen }: { prevScreen: () => void }) => {
         </section>
       ) : null}
       <p className={styles.Row}>{overUnderText(remainingNeeded, overUnder)}</p>
-      <Button onClick={() => prevScreen()}>Prev</Button>
     </div>
   );
 };
