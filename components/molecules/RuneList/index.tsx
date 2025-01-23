@@ -11,9 +11,9 @@ const RuneList: React.FC<{ runes: Rune[] }> = ({ runes }) => {
   return (
     <div className={styles.Container}>
       {runes.map(({ name, souls }) => {
-        const totalRunes = runeCount.find((r) => r.souls === souls)!.count;
+        const totalRunes = runeCount.find((r) => r.name === name)!.count;
         return (
-          <div key={souls} className={styles.Row}>
+          <div key={name} className={styles.Row}>
             <div>
               <div>{name}</div>
               <div className={styles.SubLabel}>{souls} Runes</div>
@@ -22,17 +22,17 @@ const RuneList: React.FC<{ runes: Rune[] }> = ({ runes }) => {
               <div className={styles.Controls}>
                 <Button
                   className={styles.Button}
-                  onClick={decrease(souls)}
+                  onClick={decrease(name)}
                   disabled={!totalRunes}
                 >
                   <MdRemove />
                 </Button>
                 <NumberInput
                   className={styles.Input}
-                  onChange={setExactCount(souls)}
+                  onChange={setExactCount(name)}
                   value={totalRunes}
                 />
-                <Button className={styles.Button} onClick={increase(souls)}>
+                <Button className={styles.Button} onClick={increase(name)}>
                   <MdAdd />
                 </Button>
               </div>

@@ -1,6 +1,6 @@
 export const replaceRune = (
-  souls: number,
+  name: string,
   runeCount: InventoryRune[],
   editedRune: InventoryRune
 ): InventoryRune[] =>
-  runeCount.map((rune) => (rune.souls === souls ? editedRune : rune));
+  runeCount.map((rune) => (rune.name === name ? editedRune : rune));

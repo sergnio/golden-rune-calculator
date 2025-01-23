@@ -48,9 +48,9 @@ const ModalSummary: React.FC<Props> = ({ open, setOpen }) => {
         {runeCountHeld.length > 0 ? (
           <section className={styles.List}>
             <p className={styles.Row}>Use: </p>
-            {runeCountHeld.map((rune, index) => (
+            {runeCountHeld.map((rune, _index) => (
               <>
-                <p key={rune.souls} className={styles.Row}>
+                <p key={rune.name} className={styles.Row}>
                   <span>
                     <span className={styles.Count}>{rune.count}</span> &times;{" "}
                     {rune.name}
