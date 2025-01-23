@@ -1,14 +1,15 @@
 "use client";
 
+import { CountRunes } from "@/components/CountRunes";
 import { EnterRunes } from "@/components/EnterRunes";
 import { RuneCalc } from "@/components/RuneCalc";
-import { CountRunes, Summary } from "@/components/Screens";
+import { Summary } from "@/components/Screens";
 import { useState } from "react";
 
 type Screens = "enter-runes" | "count-runes" | "summary";
 
 export default function Home() {
-  const [screen, setScreen] = useState<Screens>("enter-runes");
+  const [screen, setScreen] = useState<Screens>("count-runes");
 
   return (
     <RuneCalc>
