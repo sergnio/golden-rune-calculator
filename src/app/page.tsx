@@ -1,6 +1,6 @@
 "use client";
 
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 
 type Pages = "enter-runes" | "count-runes" | "summary";
 
