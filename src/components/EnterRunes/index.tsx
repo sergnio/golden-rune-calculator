@@ -1,15 +1,11 @@
-import { useState } from "react";
 import Button from "../Button";
 import { NumberInput } from "../NumberInput";
 import { useRuneCalc } from "../RuneCalc";
 import styles from "./styles.module.scss";
 
 export const EnterRunes = ({ nextScreen }: { nextScreen: () => void }) => {
-  const { setRunesHeld, setRunesNeeded } = useRuneCalc();
-
-  const [localHeld, setLocalHeld] = useState(0);
-  const [localNeeded, setLocalNeeded] = useState(0);
-  const haveEnough = localNeeded - localHeld < 0;
+  const { runesHeld, runesNeeded, setRunesHeld, setRunesNeeded } =
+    useRuneCalc();
 
   return (
     <div>
@@ -17,8 +13,6 @@ export const EnterRunes = ({ nextScreen }: { nextScreen: () => void }) => {
         className={styles.Form}
         onSubmit={(event) => {
           event.preventDefault();
-          setRunesHeld(localHeld);
-          setRunesNeeded(localNeeded);
           nextScreen();
         }}
       >
@@ -30,9 +24,9 @@ export const EnterRunes = ({ nextScreen }: { nextScreen: () => void }) => {
             id="input-held"
             className={styles.Input}
             onChange={(event) =>
-              setLocalHeld(parseInt(event.target.value) || 0)
+              setRunesHeld(parseInt(event.target.value) || 0)
             }
-            value={localHeld}
+            value={runesHeld}
           />
         </fieldset>
         <fieldset className={styles.Fieldset}>
@@ -43,14 +37,11 @@ export const EnterRunes = ({ nextScreen }: { nextScreen: () => void }) => {
             id="input-needed"
             className={styles.Input}
             onChange={(event) =>
-              setLocalNeeded(parseInt(event.target.value) || 0)
+              setRunesNeeded(parseInt(event.target.value) || 0)
             }
-            value={localNeeded}
+            value={runesNeeded}
           />
         </fieldset>
-        <div className={styles.Message} data-visible={haveEnough}>
-          Looks like you have enough runes already!
-        </div>
         <Button type="submit">Next</Button>
       </form>
     </div>
