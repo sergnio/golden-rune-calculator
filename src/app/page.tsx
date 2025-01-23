@@ -1,76 +1,29 @@
 "use client";
 
+import { CountRunes, EnterRunes, Summary } from "@/components/Screens";
 import { useState } from "react";
 
-type Pages = "enter-runes" | "count-runes" | "summary";
+type Screens = "enter-runes" | "count-runes" | "summary";
 
 export default function Home() {
-  const [page, setPage] = useState<Pages>("enter-runes");
+  const [screen, setScreen] = useState<Screens>("enter-runes");
 
   return (
     <div>
       <main>
-        {page === "enter-runes" && (
-          <EnterRunes nextPage={() => setPage("count-runes")} />
+        {screen === "enter-runes" && (
+          <EnterRunes nextScreen={() => setScreen("count-runes")} />
         )}
-        {page === "count-runes" && (
+        {screen === "count-runes" && (
           <CountRunes
-            prevPage={() => setPage("enter-runes")}
-            nextPage={() => setPage("summary")}
+            prevScreen={() => setScreen("enter-runes")}
+            nextScreen={() => setScreen("summary")}
           />
         )}
-        {page === "summary" && (
-          <Summary prevPage={() => setPage("count-runes")} />
+        {screen === "summary" && (
+          <Summary prevScreen={() => setScreen("count-runes")} />
         )}
       </main>
     </div>
   );
 }
-
-const EnterRunes = ({ nextPage }: { nextPage: () => void }) => {
-  return (
-    <div>
-      <div>Enter Runes</div>
-      <Pagination nextPage={nextPage} />
-    </div>
-  );
-};
-
-const CountRunes = ({
-  prevPage,
-  nextPage,
-}: {
-  nextPage: () => void;
-  prevPage: () => void;
-}) => {
-  return (
-    <div>
-      <div>Count Runes</div>
-      <Pagination prevPage={prevPage} nextPage={nextPage} />
-    </div>
-  );
-};
-
-const Summary = ({ prevPage }: { prevPage: () => void }) => {
-  return (
-    <div>
-      <div>Summary</div>
-      <Pagination prevPage={prevPage} />
-    </div>
-  );
-};
-
-const Pagination = ({
-  prevPage,
-  nextPage,
-}: {
-  nextPage?: () => void;
-  prevPage?: () => void;
-}) => {
-  return (
-    <div>
-      {prevPage ? <button onClick={prevPage}>Prev</button> : <div />}
-      {nextPage ? <button onClick={nextPage}>Next</button> : <div />}
-    </div>
-  );
-};
