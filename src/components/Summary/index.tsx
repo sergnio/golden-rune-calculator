@@ -1,6 +1,7 @@
 import { getOverUnder, OverUnder } from "@/utils/calculate";
-import { useRuneCalc } from "../RuneCalc";
+import { InventoryRune, useRuneCalc } from "../RuneCalc";
 import styles from "./styles.module.scss";
+import { useState } from "react";
 
 const overUnderText = (totalNeeded: number, overUnder: OverUnder) => {
   if (overUnder === OverUnder["Over"]) {
@@ -46,12 +47,7 @@ export const Summary = () => {
         <section className={styles.List}>
           <p className={styles.Row}>Use: </p>
           {heldRunes.map((rune) => (
-            <p key={rune.name} className={styles.Row}>
-              <span>
-                <span className={styles.Count}>{rune.count}</span> &times;{" "}
-                {rune.name}
-              </span>
-            </p>
+            <ConsumeRune key={rune.name} rune={rune} />
           ))}
         </section>
       ) : (
@@ -62,5 +58,22 @@ export const Summary = () => {
       )}
       <p className={styles.Row}>{overUnderText(remainingNeeded, overUnder)}</p>
     </div>
+  );
+};
+
+const ConsumeRune = ({ rune }: { rune: InventoryRune }) => {
+  const [consumed, setConsumed] = useState(false);
+
+  return (
+    <label className={styles.Rune} data-consumed={consumed}>
+      <input
+        type="checkbox"
+        checked={consumed}
+        onChange={() => setConsumed(!consumed)}
+      />
+      <div className={styles.RuneLabel}>
+        <span className={styles.Count}>{rune.count}</span> &times; {rune.name}
+      </div>
+    </label>
   );
 };

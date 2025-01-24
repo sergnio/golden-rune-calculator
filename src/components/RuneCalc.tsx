@@ -18,7 +18,7 @@ type RuneCalc = {
   remainingNeeded: number;
 };
 
-type InventoryRune = {
+export type InventoryRune = {
   count: number; // default 0
 } & Rune;
 
