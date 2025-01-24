@@ -15,6 +15,7 @@ type RuneCalc = {
   runesNeeded: number;
   setRunesNeeded: Dispatch<SetStateAction<number>>;
   runes: InventoryRune[];
+  heldRunes: InventoryRune[];
   setRuneCount: (setRune: InventoryRune, count: number) => void;
   totalRunes: number;
   remainingNeeded: number;
@@ -58,6 +59,8 @@ export const RuneCalc = ({ children }: React.PropsWithChildren) => {
 
   const remainingNeeded = runesNeeded - (runesHeld + totalRunes);
 
+  const heldRunes = runes.filter((rune) => rune.count > 0);
+
   const reset = () => {
     setRunesHeld(0);
     setRunesNeeded(0);
@@ -72,6 +75,7 @@ export const RuneCalc = ({ children }: React.PropsWithChildren) => {
         runesNeeded,
         setRunesNeeded,
         runes,
+        heldRunes,
         setRuneCount,
         totalRunes,
         remainingNeeded,

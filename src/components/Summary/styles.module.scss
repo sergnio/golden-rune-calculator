@@ -15,7 +15,7 @@
   justify-content: center;
   vertical-align: baseline;
   border-radius: 50%;
-  background-color: rgb(85, 82, 63, 0.5);
+  // background-color: rgb(85, 82, 63, 0.5);
   width: 1.75rem;
   height: 1.75rem;
   color: var(--color-orange-light);
@@ -69,27 +69,27 @@
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 
-  &:after {
-    --gradient-offset: var(--site-padding);
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    left: calc(-1 * var(--gradient-offset));
-    right: calc(-1 * var(--gradient-offset));
-    height: 100%;
-    z-index: -1;
-    background: linear-gradient(
-      90deg,
-      rgb(85, 82, 63, 0) 0%,
-      rgb(85, 82, 63, 0.5) var(--gradient-offset),
-      rgb(85, 82, 63, 0.5) calc(100% - var(--gradient-offset)),
-      rgb(85, 82, 63, 0) 100%
-    );
+  // &:after {
+  //   --gradient-offset: var(--site-padding);
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   left: calc(-1 * var(--gradient-offset));
+  //   right: calc(-1 * var(--gradient-offset));
+  //   height: 100%;
+  //   z-index: -1;
+  //   background: linear-gradient(
+  //     90deg,
+  //     rgb(85, 82, 63, 0) 0%,
+  //     rgb(85, 82, 63, 0.5) var(--gradient-offset),
+  //     rgb(85, 82, 63, 0.5) calc(100% - var(--gradient-offset)),
+  //     rgb(85, 82, 63, 0) 100%
+  //   );
 
-    @media screen and (min-width: 64rem) {
-      --gradient-offset: 2rem;
-    }
-  }
+  //   @media screen and (min-width: 64rem) {
+  //     --gradient-offset: 2rem;
+  //   }
+  // }
 }

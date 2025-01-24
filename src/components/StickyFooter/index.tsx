@@ -1,5 +1,9 @@
+import { useState } from "react";
+import { MdExpandLess, MdExpandMore } from "react-icons/md";
+import { GrPowerReset } from "react-icons/gr";
 import { getOverUnder, OverUnder } from "@/utils/calculate";
 import { useRuneCalc } from "../RuneCalc";
+import { Summary } from "../Summary";
 import { Button } from "../Button";
 import styles from "./styles.module.scss";
 
@@ -11,31 +15,51 @@ const getSign = (overUnder: OverUnder): string => {
 };
 
 export const StickyFooter = () => {
-  const { runesHeld, totalRunes, remainingNeeded } = useRuneCalc();
+  const [open, setOpen] = useState(false);
+  const { reset, heldRunes } = useRuneCalc();
 
+  return (
+    <div className={styles.StickyFooter}>
+      {open ? <Summary /> : null}
+      <div className={styles.Container}>
+        <div className={styles.Section}>
+          <Button id="reset" onClick={reset} className={styles.IconButton}>
+            <GrPowerReset />
+          </Button>
+          <RuneCount />
+        </div>
+        <div className={styles.Section}>
+          {heldRunes.length > 0 ? (
+            <Button
+              onClick={() => setOpen(!open)}
+              className={styles.IconButton}
+            >
+              {open ? <MdExpandMore /> : <MdExpandLess />}
+            </Button>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const RuneCount = () => {
+  const { runesHeld, totalRunes, remainingNeeded } = useRuneCalc();
   const overUnder = getOverUnder(remainingNeeded);
   const neededSign = getSign(overUnder);
   const neededText = `${neededSign}${-1 * remainingNeeded}`;
 
   return (
-    <div className={styles.StickyFooter}>
-      <div className={styles.Container}>
-        <div className={styles.Section}></div>
-        <div className={styles.Section}>
-          <div className={styles.Values}>
-            <div className={styles.Value}>
-              <div className={styles.ValueLabel}>Total:</div>
-              <div className={styles.ValueValue}>{runesHeld + totalRunes}</div>
-            </div>
-            <div className={styles.Value}>
-              <div className={styles.ValueLabel}>Needed:</div>
-              <div className={styles.ValueValue} data-over-under={overUnder}>
-                {neededText}
-              </div>
-            </div>
-          </div>
+    <div className={styles.Values}>
+      <div className={styles.Value}>
+        <div className={styles.ValueLabel}>Total:</div>
+        <div className={styles.ValueValue}>{runesHeld + totalRunes}</div>
+      </div>
+      <div className={styles.Value}>
+        <div className={styles.ValueLabel}>Needed:</div>
+        <div className={styles.ValueValue} data-over-under={overUnder}>
+          {neededText}
         </div>
-        <div className={styles.Section}></div>
       </div>
     </div>
   );
