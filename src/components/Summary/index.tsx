@@ -8,7 +8,7 @@ export const Summary = () => {
   return (
     <div className={styles.Content}>
       <div className={styles.List}>
-        <p className={styles.Row}>Use: </p>
+        <p className={styles.Title}>Use: </p>
         {heldRunes.map((rune) => (
           <ConsumeRune key={rune.name} rune={rune} />
         ))}

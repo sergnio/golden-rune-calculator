@@ -16,6 +16,7 @@
   justify-content: space-between;
   position: relative;
   padding: 0.5rem 0;
+  gap: 0.5rem;
 
   @include gradient.gradient;
 }
