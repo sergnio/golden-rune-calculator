@@ -1,13 +1,10 @@
 import { NumberInput } from "../NumberInput";
 import { useRuneCalc } from "../RuneCalc";
-import { useScreens } from "../Screens";
 import styles from "./styles.module.scss";
 
 export const EnterRunes = () => {
   const { runesHeld, runesNeeded, setRunesHeld, setRunesNeeded } =
     useRuneCalc();
-
-  const { nextScreen } = useScreens();
 
   return (
     <div className={styles.Container}>
@@ -22,15 +19,7 @@ export const EnterRunes = () => {
           next level.
         </p>
       </header>
-      <form
-        className={styles.Form}
-        onSubmit={(event) => {
-          event.preventDefault();
-          if (nextScreen) {
-            nextScreen();
-          }
-        }}
-      >
+      <div className={styles.Form}>
         <fieldset className={styles.Fieldset}>
           <label className={styles.Label} htmlFor="input-held">
             Runes Held
@@ -57,7 +46,7 @@ export const EnterRunes = () => {
             value={runesNeeded}
           />
         </fieldset>
-      </form>
+      </div>
     </div>
   );
 };

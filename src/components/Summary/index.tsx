@@ -15,12 +15,12 @@ export const Summary = () => {
         </h1>
       </header>
       {heldRunes.length > 0 ? (
-        <section className={styles.List}>
+        <div className={styles.List}>
           <p className={styles.Row}>Use: </p>
           {heldRunes.map((rune) => (
             <ConsumeRune key={rune.name} rune={rune} />
           ))}
-        </section>
+        </div>
       ) : (
         <p>
           You have not selected any golden runes. Go back to the previous step
