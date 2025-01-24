@@ -34,6 +34,10 @@
   align-items: center;
   gap: 0.25rem;
 
+  @media (pointer: coarse) {
+    padding: 0.35em 0;
+  }
+
   input {
     color: rgba(255, 255, 255, 0.5);
     border: 1px solid currentColor;

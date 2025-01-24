@@ -1,34 +1,11 @@
-import { getOverUnder, OverUnder } from "@/utils/calculate";
+import { useState } from "react";
 import { InventoryRune, useRuneCalc } from "../RuneCalc";
 import styles from "./styles.module.scss";
-import { useState } from "react";
-
-const overUnderText = (totalNeeded: number, overUnder: OverUnder) => {
-  if (overUnder === OverUnder["Over"]) {
-    return (
-      <>
-        <span>Runes Left</span>{" "}
-        <span data-over-under={overUnder}>+{Math.abs(totalNeeded)}</span>
-      </>
-    );
-  }
-  if (overUnder === OverUnder["Under"]) {
-    return (
-      <>
-        <span></span>{" "}
-        <span data-over-under={overUnder}>-{Math.abs(totalNeeded)}</span>
-      </>
-    );
-  }
-
-  return null;
-};
 
 export const Summary = () => {
-  const { runes, runesHeld, runesNeeded, remainingNeeded } = useRuneCalc();
+  const { runes } = useRuneCalc();
 
   const heldRunes = runes.filter((rune) => rune.count > 0);
-  const overUnder = getOverUnder(remainingNeeded);
 
   return (
     <div className={styles.Content}>
@@ -37,12 +14,6 @@ export const Summary = () => {
           <span className="big">C</span>onsum<span className="big">e</span>
         </h1>
       </header>
-      <p className={styles.Row}>
-        <span>Runes Held</span> <span>{runesHeld}</span>
-      </p>
-      <p className={styles.Row}>
-        <span>Runes Needed</span> <span>{runesNeeded}</span>
-      </p>
       {heldRunes.length > 0 ? (
         <section className={styles.List}>
           <p className={styles.Row}>Use: </p>
@@ -56,7 +27,6 @@ export const Summary = () => {
           and select some.
         </p>
       )}
-      <p className={styles.Row}>{overUnderText(remainingNeeded, overUnder)}</p>
     </div>
   );
 };
