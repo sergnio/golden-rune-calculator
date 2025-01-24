@@ -13,7 +13,9 @@ export const EnterRunes = () => {
           <span className="big">G</span>olden Run<span className="big">e</span>
           <span className="sub">Calculator</span>
         </h1>
-        <p className={styles.Alert}>Now updated to for Shadow of the Erdtree</p>
+        <p className={styles.Alert}>
+          Now updated for Shadow&nbsp;of&nbsp;the&nbsp;Erdtree
+        </p>
         <p>
           Calculate exactly how many golden runes you need to consume based off
           of how many runes you hold and how many you need to progress to the
