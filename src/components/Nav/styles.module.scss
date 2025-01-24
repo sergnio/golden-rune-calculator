@@ -8,10 +8,7 @@
   width: var(--table-width);
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 1rem;
   position: relative;
-
-  @include gradient.gradient;
 }
 
 .Links {
