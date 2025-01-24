@@ -1,7 +1,7 @@
 @use "@/styles/tools.scss";
 
 .Container {
-  width: var(--table-width);
+  max-width: var(--table-width);
   margin-left: auto;
   margin-right: auto;
 }

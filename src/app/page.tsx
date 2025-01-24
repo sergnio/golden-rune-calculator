@@ -7,6 +7,7 @@ import { RuneList } from "@/components/RuneList";
 import { RuneCalc } from "@/components/RuneCalc";
 import { Screens, useScreens } from "@/components/Screens";
 import styles from "./page.module.scss";
+import { Nav } from "@/components/Nav";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ const Render = () => {
 
   return (
     <main className={styles.Container}>
+      <Nav />
       <div className={styles.Screen}>
         {screen === "enter-runes" && <EnterRunes />}
         {screen === "count-runes" && <RuneList />}
