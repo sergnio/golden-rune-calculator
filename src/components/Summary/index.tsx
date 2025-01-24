@@ -31,6 +31,11 @@ export const Summary = () => {
 
   return (
     <div className={styles.Content}>
+      <header>
+        <h1>
+          <span className="big">C</span>onsum<span className="big">e</span>
+        </h1>
+      </header>
       <p className={styles.Row}>
         <span>Runes Held</span> <span>{runesHeld}</span>
       </p>
@@ -41,17 +46,20 @@ export const Summary = () => {
         <section className={styles.List}>
           <p className={styles.Row}>Use: </p>
           {heldRunes.map((rune) => (
-            <>
-              <p key={rune.name} className={styles.Row}>
-                <span>
-                  <span className={styles.Count}>{rune.count}</span> &times;{" "}
-                  {rune.name}
-                </span>
-              </p>
-            </>
+            <p key={rune.name} className={styles.Row}>
+              <span>
+                <span className={styles.Count}>{rune.count}</span> &times;{" "}
+                {rune.name}
+              </span>
+            </p>
           ))}
         </section>
-      ) : null}
+      ) : (
+        <p>
+          You have not selected any golden runes. Go back to the previous step
+          and select some.
+        </p>
+      )}
       <p className={styles.Row}>{overUnderText(remainingNeeded, overUnder)}</p>
     </div>
   );

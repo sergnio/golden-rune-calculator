@@ -11,6 +11,17 @@ export const EnterRunes = () => {
 
   return (
     <div className={styles.Container}>
+      <header>
+        <h1>
+          <span className="big">G</span>olden Run<span className="big">e</span>
+          <span className="sub">Calculator</span>
+        </h1>
+        <p>
+          Calculate exactly how many golden runes you need to consume based off
+          of how many runes you hold and how many you need to progress to the
+          next level.
+        </p>
+      </header>
       <form
         className={styles.Form}
         onSubmit={(event) => {
