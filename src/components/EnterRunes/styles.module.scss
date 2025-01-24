@@ -6,6 +6,35 @@
   margin-right: auto;
 }
 
+.Alert {
+  font-size: 1.3em;
+  text-align: center;
+  margin: 1rem 0;
+  display: inline-block;
+  position: relative;
+  padding: 0.6rem 1rem;
+  --inset: 0.25rem;
+
+  &:before,
+  &:after {
+    content: "";
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+
+  &:before {
+    left: var(--inset);
+    right: var(--inset);
+  }
+
+  &:after {
+    top: var(--inset);
+    bottom: var(--inset);
+  }
+}
+
 .Form {
   display: flex;
   flex-direction: column;
