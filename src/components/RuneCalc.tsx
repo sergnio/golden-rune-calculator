@@ -7,6 +7,8 @@ import {
   useState,
 } from "react";
 
+const runesWithCount = allRunes.map((rune) => ({ ...rune, count: 0 }));
+
 type RuneCalc = {
   runesHeld: number;
   setRunesHeld: Dispatch<SetStateAction<number>>;
@@ -16,6 +18,7 @@ type RuneCalc = {
   setRuneCount: (setRune: InventoryRune, count: number) => void;
   totalRunes: number;
   remainingNeeded: number;
+  reset: () => void;
 };
 
 export type InventoryRune = {
@@ -38,9 +41,7 @@ export const useRuneCalc = () => {
 export const RuneCalc = ({ children }: React.PropsWithChildren) => {
   const [runesHeld, setRunesHeld] = useState(0);
   const [runesNeeded, setRunesNeeded] = useState(0);
-  const [runes, setRunes] = useState(
-    allRunes.map((rune) => ({ ...rune, count: 0 }))
-  );
+  const [runes, setRunes] = useState(runesWithCount);
 
   const setRuneCount = (setRune: InventoryRune, count: number) => {
     setRunes(
@@ -57,6 +58,12 @@ export const RuneCalc = ({ children }: React.PropsWithChildren) => {
 
   const remainingNeeded = runesNeeded - (runesHeld + totalRunes);
 
+  const reset = () => {
+    setRunesHeld(0);
+    setRunesNeeded(0);
+    setRunes(runesWithCount);
+  };
+
   return (
     <RuneCalcProvider
       value={{
@@ -68,6 +75,7 @@ export const RuneCalc = ({ children }: React.PropsWithChildren) => {
         setRuneCount,
         totalRunes,
         remainingNeeded,
+        reset,
       }}
     >
       {children}

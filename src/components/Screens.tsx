@@ -1,4 +1,11 @@
-import { createContext, PropsWithChildren, useContext, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  PropsWithChildren,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
 
 const screens = ["enter-runes", "count-runes", "summary"] as const;
 type Screens = (typeof screens)[number];
@@ -7,6 +14,7 @@ type ScreensState = {
   screen: Screens;
   prevScreen?: () => void;
   nextScreen?: () => void;
+  setScreen: Dispatch<SetStateAction<Screens>>;
 };
 
 const ScreensContext = createContext<ScreensState | undefined>(undefined);
@@ -30,7 +38,7 @@ export const Screens = ({ children }: PropsWithChildren) => {
     screenIndex > 0 ? () => setScreen(screens[screenIndex - 1]) : undefined;
 
   const nextScreen =
-    screenIndex <= screens.length
+    screenIndex < screens.length - 1
       ? () => setScreen(screens[screenIndex + 1])
       : undefined;
 
@@ -40,6 +48,7 @@ export const Screens = ({ children }: PropsWithChildren) => {
         screen,
         prevScreen,
         nextScreen,
+        setScreen,
       }}
     >
       {children}

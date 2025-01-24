@@ -19,6 +19,7 @@
 }
 
 .Logo {
+  @include tools.resetButton();
   width: 2rem;
   flex-shrink: 0;
 
