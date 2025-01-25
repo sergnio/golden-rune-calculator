@@ -1,0 +1,48 @@
+@use "@/styles/gradient.scss";
+
+.Container {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: var(--table-width);
+  text-align: left;
+}
+
+.Row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0.5rem 0;
+  gap: 0.5rem;
+
+  @include gradient.gradient;
+}
+
+.SubLabel {
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  margin-left: 1rem;
+  margin-top: 0.1rem;
+  color: var(--color-orange-light);
+  opacity: 0.8;
+}
+
+.Controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Button {
+  width: 3rem;
+  height: 3rem;
+}
+
+.Input {
+  width: 4rem;
+  height: 2.8rem;
+}

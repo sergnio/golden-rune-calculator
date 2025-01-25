@@ -1,0 +1,71 @@
+.Content {
+  width: var(--table-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5rem;
+  flex-shrink: 1;
+  overflow: auto;
+}
+
+.Count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: baseline;
+  border-radius: 50%;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--color-orange-light);
+}
+
+.Title {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25em 0;
+  position: sticky;
+  top: 0;
+  background-color: rgb(16, 19, 15);
+  z-index: 1;
+}
+
+.Row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5em 0;
+}
+
+.Rune {
+  display: flex;
+  margin: 0.5em 0;
+  padding: 0.1em 0;
+  align-items: center;
+  gap: 0.25rem;
+
+  @media (pointer: coarse) {
+    padding: 0.35em 0;
+  }
+
+  input {
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid currentColor;
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      inset: 0.1rem;
+      background-color: transparent;
+    }
+
+    &:checked:after {
+      background-color: var(--color-orange-dark);
+    }
+  }
+
+  &[data-consumed="true"] .RuneLabel {
+    opacity: 0.25;
+  }
+}

@@ -1,0 +1,59 @@
+.StickyFooter {
+  position: sticky;
+  bottom: 0;
+  margin-left: calc(-1 * var(--site-padding));
+  margin-right: calc(-1 * var(--site-padding));
+  padding: 0.5rem var(--site-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 75vh;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    top: -0.5rem;
+    background: linear-gradient(
+      0deg,
+      rgb(16, 19, 15) 0%,
+      rgb(16, 19, 15, 1) calc(100% - 0.8rem),
+      rgb(16, 19, 15, 0) 100%
+    );
+    z-index: -1;
+  }
+}
+
+.Container {
+  width: var(--table-width);
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Section {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.Values {
+  text-align: left;
+}
+
+.Value {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.ValueValue {
+  text-align: right;
+}
+
+.IconButton {
+  width: 3rem;
+  height: 3rem;
+}
