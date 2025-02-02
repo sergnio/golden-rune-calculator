@@ -3,7 +3,6 @@ import { MdExpandLess, MdExpandMore } from "react-icons/md";
 import { getOverUnder, OverUnder } from "@/utils/calculate";
 import {
   useHeldRunes,
-  useRemainingNeeded,
   useRuneCalcStore,
   useTotalRunes,
 } from "@/store/RuneCalc";
@@ -21,12 +20,21 @@ export const StickyFooter = () => {
   const [open, setOpen] = useState(false);
   const heldRunes = useHeldRunes();
   const heldRuneCount = heldRunes.length;
+  const consumeRunes = useRuneCalcStore((state) => state.consumeRunes);
 
+  // Close summary if no runes are selected
   useEffect(() => {
     if (heldRuneCount === 0 && open) {
       setOpen(false);
     }
   }, [open, heldRuneCount]);
+
+  // Add consumed runes to runes held and clear them out when summary is closed
+  useEffect(() => {
+    if (open === false) {
+      consumeRunes();
+    }
+  }, [open, consumeRunes]);
 
   return (
     <div className={styles.StickyFooter}>
@@ -49,10 +57,16 @@ export const StickyFooter = () => {
 };
 
 const RuneCount = () => {
+  // Values entered in the beginning
   const runesHeld = useRuneCalcStore((state) => state.runesHeld);
-  const totalRunes = useTotalRunes();
-  const remainingNeeded = useRemainingNeeded();
+  const runesNeeded = useRuneCalcStore((state) => state.runesNeeded);
 
+  // Sum values
+  const runesAdded = useTotalRunes();
+  const totalRunesHeld = runesHeld + runesAdded;
+  const remainingNeeded = runesNeeded - totalRunesHeld;
+
+  // Visual helpers
   const overUnder = getOverUnder(remainingNeeded);
   const neededSign = getSign(overUnder);
   const neededText = `${neededSign}${-1 * remainingNeeded}`;
@@ -62,7 +76,7 @@ const RuneCount = () => {
       <tbody>
         <tr className={styles.Value}>
           <th className={styles.ValueLabel}>Total:</th>
-          <td className={styles.ValueValue}>{runesHeld + totalRunes}</td>
+          <td className={styles.ValueValue}>{totalRunesHeld}</td>
         </tr>
         <tr className={styles.Value}>
           <th className={styles.ValueLabel}>Needed:</th>

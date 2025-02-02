@@ -1,5 +1,8 @@
-import { useState } from "react";
-import { InventoryRune, useHeldRunes } from "@/store/RuneCalc";
+import {
+  InventoryRune,
+  useHeldRunes,
+  useRuneCalcStore,
+} from "@/store/RuneCalc";
 import styles from "./styles.module.scss";
 
 export const Summary = () => {
@@ -18,14 +21,14 @@ export const Summary = () => {
 };
 
 const ConsumeRune = ({ rune }: { rune: InventoryRune }) => {
-  const [consumed, setConsumed] = useState(false);
+  const consumeRune = useRuneCalcStore((state) => state.consumeRune);
 
   return (
-    <label className={styles.Rune} data-consumed={consumed}>
+    <label className={styles.Rune} data-consumed={rune.consumed}>
       <input
         type="checkbox"
-        checked={consumed}
-        onChange={() => setConsumed(!consumed)}
+        checked={rune.consumed}
+        onChange={() => consumeRune(rune, !rune.consumed)}
       />
       <div className={styles.RuneLabel}>
         <span className={styles.Count}>{rune.count}</span> &times; {rune.name}
