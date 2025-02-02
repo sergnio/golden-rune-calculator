@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
-import { GrPowerReset } from "react-icons/gr";
 import { getOverUnder, OverUnder } from "@/utils/calculate";
 import { useRuneCalc } from "../RuneCalc";
 import { Summary } from "../Summary";
@@ -16,21 +15,18 @@ const getSign = (overUnder: OverUnder): string => {
 
 export const StickyFooter = () => {
   const [open, setOpen] = useState(false);
-  const {  heldRunes } = useRuneCalc();
+  const { heldRunes } = useRuneCalc();
 
   return (
     <div className={styles.StickyFooter}>
       {open ? <Summary /> : null}
       <div className={styles.Container}>
-          <RuneCount />
-          {heldRunes.length > 0 ? (
-            <Button
-              onClick={() => setOpen(!open)}
-              className={styles.IconButton}
-            >
-              {open ? <MdExpandMore /> : <MdExpandLess />}
-            </Button>
-          ) : null}
+        <RuneCount />
+        {heldRunes.length > 0 ? (
+          <Button onClick={() => setOpen(!open)} className={styles.IconButton}>
+            {open ? <MdExpandMore /> : <MdExpandLess />}
+          </Button>
+        ) : null}
       </div>
     </div>
   );
