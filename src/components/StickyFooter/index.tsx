@@ -29,7 +29,7 @@ export const StickyFooter = () => {
     }
   }, [open, heldRuneCount]);
 
-  // Add consume runes when summary closed
+  // Add consumed runes to runes held and clear them out when summary is closed
   useEffect(() => {
     if (open === false) {
       consumeRunes();
