@@ -34,6 +34,7 @@ body {
 
 body {
   background-color: var(--color-black);
+
   color: #d7d5c5;
   font-family: Garamond, serif;
   font-weight: 400;
@@ -42,6 +43,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
+
+  &:before {
+    content: "";
+    z-index: -1;
+    inset: 0;
+    position: absolute;
+
+    background-image: url("/background.png");
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+    background-size: 75%;
+    max-width: var(--table-width);
+    margin: auto;
+
+    @media screen and (min-width: 36rem) {
+      background-position: 50% 6%;
+    }
+  }
 }
 
 a {
@@ -69,33 +88,6 @@ svg {
 
 header {
   margin-bottom: 2.6rem;
-}
-
-h1 {
-  font-size: 2.6rem;
-  font-weight: 400;
-  line-height: 1.12;
-  color: var(--color-orange-light);
-  opacity: 0.5;
-  text-transform: uppercase;
-  margin: 0.25em 0;
-
-  @media screen and (min-width: 48rem) {
-    font-size: 3.2rem;
-  }
-
-  .big {
-    font-size: 1.5em;
-    vertical-align: middle;
-    display: inline-block;
-    line-height: 0;
-  }
-
-  .sub {
-    display: block;
-    font-size: 0.8em;
-    margin-top: -0.2em;
-  }
 }
 
 p {
