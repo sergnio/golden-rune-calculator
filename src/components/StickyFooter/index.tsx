@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
 import { getOverUnder, OverUnder } from "@/utils/calculate";
 import {
@@ -21,13 +21,20 @@ const getSign = (overUnder: OverUnder): string => {
 export const StickyFooter = () => {
   const [open, setOpen] = useState(false);
   const heldRunes = useHeldRunes();
+  const heldRuneCount = heldRunes.length;
+
+  useEffect(() => {
+    if (heldRuneCount === 0 && open) {
+      setOpen(false);
+    }
+  }, [open, heldRuneCount]);
 
   return (
     <div className={styles.StickyFooter}>
       {open ? <Summary /> : null}
       <div className={styles.Container}>
         <RuneCount />
-        {heldRunes.length > 0 ? (
+        {heldRuneCount > 0 ? (
           <Button onClick={() => setOpen(!open)} className={styles.IconButton}>
             {open ? <MdExpandMore /> : <MdExpandLess />}
           </Button>
