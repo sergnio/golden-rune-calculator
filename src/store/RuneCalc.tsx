@@ -25,15 +25,22 @@ interface RuneCalcState {
 export const useRuneCalcStore = create<RuneCalcState>(
   (set, get) =>
     ({
-      runesHeld: 0,
-      runesNeeded: 0,
+      // Global state
       runes: runesWithCount,
+
+      // How many runes you already hold
+      runesHeld: 0,
       setRunesHeld: (runes: number) => {
         set({ runesHeld: runes });
       },
+
+      // How many runes you need
+      runesNeeded: 0,
       setRunesNeeded: (runes: number) => {
         set({ runesNeeded: runes });
       },
+
+      // Set the count for a specific rune
       setRuneCount: (setRune: InventoryRune, count: number) => {
         const runes = get().runes;
         set({
@@ -42,6 +49,8 @@ export const useRuneCalcStore = create<RuneCalcState>(
           ),
         });
       },
+
+      // Mark a rune as consumed
       consumeRune: (consumedRune: InventoryRune, consumed: boolean) => {
         const runes = get().runes;
         set({
