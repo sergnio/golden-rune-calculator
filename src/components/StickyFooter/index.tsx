@@ -16,19 +16,13 @@ const getSign = (overUnder: OverUnder): string => {
 
 export const StickyFooter = () => {
   const [open, setOpen] = useState(false);
-  const { reset, heldRunes } = useRuneCalc();
+  const {  heldRunes } = useRuneCalc();
 
   return (
     <div className={styles.StickyFooter}>
       {open ? <Summary /> : null}
       <div className={styles.Container}>
-        <div className={styles.Section}>
-          <Button id="reset" onClick={reset} className={styles.IconButton}>
-            <GrPowerReset />
-          </Button>
           <RuneCount />
-        </div>
-        <div className={styles.Section}>
           {heldRunes.length > 0 ? (
             <Button
               onClick={() => setOpen(!open)}
@@ -37,7 +31,6 @@ export const StickyFooter = () => {
               {open ? <MdExpandMore /> : <MdExpandLess />}
             </Button>
           ) : null}
-        </div>
       </div>
     </div>
   );
