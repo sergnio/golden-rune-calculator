@@ -32,14 +32,19 @@ export const StickyFooter = () => {
   return (
     <div className={styles.StickyFooter}>
       {open ? <Summary /> : null}
-      <div className={styles.Container}>
+      <button
+        type="button"
+        disabled={heldRuneCount === 0}
+        onClick={() => setOpen(!open)}
+        className={styles.Container}
+      >
         <RuneCount />
         {heldRuneCount > 0 ? (
-          <Button onClick={() => setOpen(!open)} className={styles.IconButton}>
+          <div className={styles.Icon}>
             {open ? <MdExpandMore /> : <MdExpandLess />}
-          </Button>
+          </div>
         ) : null}
-      </div>
+      </button>
     </div>
   );
 };
