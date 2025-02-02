@@ -7,7 +7,6 @@ import {
   useTotalRunes,
 } from "@/store/RuneCalc";
 import { Summary } from "../Summary";
-import { Button } from "../Button";
 import styles from "./styles.module.scss";
 
 const getSign = (overUnder: OverUnder): string => {
@@ -40,14 +39,19 @@ export const StickyFooter = () => {
   return (
     <div className={styles.StickyFooter}>
       {open ? <Summary /> : null}
-      <div className={styles.Container}>
+      <button
+        type="button"
+        disabled={heldRuneCount === 0}
+        onClick={() => setOpen(!open)}
+        className={styles.Container}
+      >
         <RuneCount />
         {heldRuneCount > 0 ? (
-          <Button onClick={() => setOpen(!open)} className={styles.IconButton}>
+          <div className={styles.Icon}>
             {open ? <MdExpandMore /> : <MdExpandLess />}
-          </Button>
+          </div>
         ) : null}
-      </div>
+      </button>
     </div>
   );
 };
@@ -68,17 +72,19 @@ const RuneCount = () => {
   const neededText = `${neededSign}${-1 * remainingNeeded}`;
 
   return (
-    <div className={styles.Values}>
-      <div className={styles.Value}>
-        <div className={styles.ValueLabel}>Total:</div>
-        <div className={styles.ValueValue}>{totalRunesHeld}</div>
-      </div>
-      <div className={styles.Value}>
-        <div className={styles.ValueLabel}>Needed:</div>
-        <div className={styles.ValueValue} data-over-under={overUnder}>
-          {neededText}
-        </div>
-      </div>
-    </div>
+    <table className={styles.Values}>
+      <tbody>
+        <tr className={styles.Value}>
+          <th className={styles.ValueLabel}>Total:</th>
+          <div className={styles.ValueValue}>{totalRunesHeld}</div>
+        </tr>
+        <tr className={styles.Value}>
+          <th className={styles.ValueLabel}>Needed:</th>
+          <td className={styles.ValueValue} data-over-under={overUnder}>
+            {neededText}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
