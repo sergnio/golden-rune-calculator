@@ -1,13 +1,10 @@
-import Image from "next/image";
 import { Github } from "@/components/Github";
 import styles from "./styles.module.scss";
 
 export const Nav = () => {
   return (
     <nav className={styles.Nav}>
-      <button className={styles.Logo} type="button" onClick={() => {}}>
-        <Image src="/lordrune.png" alt="golden rune" height={80} width={80} />
-      </button>
+      <div />
       <div className={styles.Links}>
         <a
           target="_blank"
