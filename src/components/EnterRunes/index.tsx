@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { NumberInput } from "../NumberInput";
 import { useRuneCalcStore } from "@/store/RuneCalc";
 import styles from "./styles.module.scss";
@@ -11,10 +12,16 @@ export const EnterRunes = () => {
   return (
     <div className={styles.Container}>
       <header>
-        <h1>
-          <span className="big">G</span>olden Run<span className="big">e</span>
-          <span className="sub">Calculator</span>
-        </h1>
+        <div className={styles.Logo}>
+          <h1>
+            <Image
+              src="/title.png"
+              alt="Golden Rune Calculator"
+              width={776}
+              height={181}
+            />
+          </h1>
+        </div>
         <p className={styles.Alert}>
           Now updated for Shadow&nbsp;of&nbsp;the&nbsp;Erdtree
         </p>
