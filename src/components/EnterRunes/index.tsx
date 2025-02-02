@@ -1,10 +1,12 @@
 import { NumberInput } from "../NumberInput";
-import { useRuneCalc } from "../RuneCalc";
+import { useRuneCalcStore } from "@/store/RuneCalc";
 import styles from "./styles.module.scss";
 
 export const EnterRunes = () => {
-  const { runesHeld, runesNeeded, setRunesHeld, setRunesNeeded } =
-    useRuneCalc();
+  const runesHeld = useRuneCalcStore((state) => state.runesHeld);
+  const setRunesHeld = useRuneCalcStore((state) => state.setRunesHeld);
+  const runesNeeded = useRuneCalcStore((state) => state.runesNeeded);
+  const setRunesNeeded = useRuneCalcStore((state) => state.setRunesNeeded);
 
   return (
     <div className={styles.Container}>
