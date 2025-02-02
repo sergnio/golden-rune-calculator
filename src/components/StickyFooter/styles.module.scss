@@ -40,13 +40,22 @@
 }
 
 .Values {
+  border-spacing: 0;
   text-align: left;
+  min-width: 8rem;
+
+  th,
+  td {
+    padding: 0;
+  }
+
+  th {
+    padding-right: 0.5rem;
+  }
 }
 
-.Value {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
+.ValueLabel {
+  font-weight: 400;
 }
 
 .ValueValue {

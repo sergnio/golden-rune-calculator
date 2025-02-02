@@ -54,17 +54,19 @@ const RuneCount = () => {
   const neededText = `${neededSign}${-1 * remainingNeeded}`;
 
   return (
-    <div className={styles.Values}>
-      <div className={styles.Value}>
-        <div className={styles.ValueLabel}>Total:</div>
-        <div className={styles.ValueValue}>{runesHeld + totalRunes}</div>
-      </div>
-      <div className={styles.Value}>
-        <div className={styles.ValueLabel}>Needed:</div>
-        <div className={styles.ValueValue} data-over-under={overUnder}>
-          {neededText}
-        </div>
-      </div>
-    </div>
+    <table className={styles.Values}>
+      <tbody>
+        <tr className={styles.Value}>
+          <th className={styles.ValueLabel}>Total:</th>
+          <td className={styles.ValueValue}>{runesHeld + totalRunes}</td>
+        </tr>
+        <tr className={styles.Value}>
+          <th className={styles.ValueLabel}>Needed:</th>
+          <td className={styles.ValueValue} data-over-under={overUnder}>
+            {neededText}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
