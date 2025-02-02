@@ -1,14 +1,9 @@
 import { useState } from "react";
-import {
-  useRuneCalcStore,
-  InventoryRune,
-  calcHeldRunes,
-} from "@/store/RuneCalc";
+import { InventoryRune, useHeldRunes } from "@/store/RuneCalc";
 import styles from "./styles.module.scss";
 
 export const Summary = () => {
-  const runes = useRuneCalcStore((state) => state.runes);
-  const heldRunes = calcHeldRunes({ runes });
+  const heldRunes = useHeldRunes();
 
   return (
     <div className={styles.Content}>

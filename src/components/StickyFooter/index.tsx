@@ -2,10 +2,10 @@ import { useState } from "react";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
 import { getOverUnder, OverUnder } from "@/utils/calculate";
 import {
-  calcHeldRunes,
-  calcRemainingNeeded,
-  calcTotalRunes,
+  useHeldRunes,
+  useRemainingNeeded,
   useRuneCalcStore,
+  useTotalRunes,
 } from "@/store/RuneCalc";
 import { Summary } from "../Summary";
 import { Button } from "../Button";
@@ -20,8 +20,7 @@ const getSign = (overUnder: OverUnder): string => {
 
 export const StickyFooter = () => {
   const [open, setOpen] = useState(false);
-  const runes = useRuneCalcStore((state) => state.runes);
-  const heldRunes = calcHeldRunes({ runes });
+  const heldRunes = useHeldRunes();
 
   return (
     <div className={styles.StickyFooter}>
@@ -39,16 +38,9 @@ export const StickyFooter = () => {
 };
 
 const RuneCount = () => {
-  const runes = useRuneCalcStore((state) => state.runes);
   const runesHeld = useRuneCalcStore((state) => state.runesHeld);
-  const runesNeeded = useRuneCalcStore((state) => state.runesNeeded);
-
-  const totalRunes = calcTotalRunes({ runes });
-  const remainingNeeded = calcRemainingNeeded({
-    runesHeld,
-    runesNeeded,
-    totalRunes,
-  });
+  const totalRunes = useTotalRunes();
+  const remainingNeeded = useRemainingNeeded();
 
   const overUnder = getOverUnder(remainingNeeded);
   const neededSign = getSign(overUnder);

@@ -40,21 +40,31 @@ export const useRuneCalcStore = create<RuneCalcState>((set, get) => ({
 /**
  * COMPUTE HELPERS
  */
-export const calcTotalRunes = ({ runes }: { runes: InventoryRune[] }) =>
-  runes.reduce(
+export const calcTotalRunes = () => {
+  const runes = useRuneCalcStore.getState().runes;
+  return runes.reduce(
     (previous, current) => previous + current.count * current.souls,
     0
   );
+};
 
-export const calcHeldRunes = ({ runes }: { runes: InventoryRune[] }) =>
-  runes.filter((rune) => rune.count > 0);
+export const useTotalRunes = () => {
+  const runes = useRuneCalcStore((state) => state.runes);
+  return runes.reduce(
+    (previous, current) => previous + current.count * current.souls,
+    0
+  );
+};
 
-export const calcRemainingNeeded = ({
-  runesNeeded,
-  runesHeld,
-  totalRunes,
-}: {
-  runesNeeded: number;
-  runesHeld: number;
-  totalRunes: number;
-}) => runesNeeded - (runesHeld + totalRunes);
+export const useRemainingNeeded = () => {
+  const runesHeld = useRuneCalcStore((state) => state.runesHeld);
+  const runesNeeded = useRuneCalcStore((state) => state.runesNeeded);
+  const totalRunes = useTotalRunes();
+
+  return runesNeeded - (runesHeld + totalRunes);
+};
+
+export const useHeldRunes = () => {
+  const runes = useRuneCalcStore((state) => state.runes);
+  return runes.filter((rune) => rune.count > 0);
+};
