@@ -3,7 +3,6 @@ import { MdExpandLess, MdExpandMore } from "react-icons/md";
 import { getOverUnder, OverUnder } from "@/utils/calculate";
 import {
   useHeldRunes,
-  useRemainingNeeded,
   useRuneCalcStore,
   useTotalRunes,
 } from "@/store/RuneCalc";
@@ -45,10 +44,16 @@ export const StickyFooter = () => {
 };
 
 const RuneCount = () => {
+  // Values entered in the beginning
   const runesHeld = useRuneCalcStore((state) => state.runesHeld);
-  const totalRunes = useTotalRunes();
-  const remainingNeeded = useRemainingNeeded();
+  const runesNeeded = useRuneCalcStore((state) => state.runesNeeded);
 
+  // Sum values
+  const runesAdded = useTotalRunes();
+  const totalRunesHeld = runesHeld + runesAdded;
+  const remainingNeeded = runesNeeded - totalRunesHeld;
+
+  // Visual helpers
   const overUnder = getOverUnder(remainingNeeded);
   const neededSign = getSign(overUnder);
   const neededText = `${neededSign}${-1 * remainingNeeded}`;
@@ -57,7 +62,7 @@ const RuneCount = () => {
     <div className={styles.Values}>
       <div className={styles.Value}>
         <div className={styles.ValueLabel}>Total:</div>
-        <div className={styles.ValueValue}>{runesHeld + totalRunes}</div>
+        <div className={styles.ValueValue}>{totalRunesHeld}</div>
       </div>
       <div className={styles.Value}>
         <div className={styles.ValueLabel}>Needed:</div>
