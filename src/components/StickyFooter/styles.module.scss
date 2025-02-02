@@ -1,31 +1,24 @@
+@use "@/styles/tools.scss";
+
 .StickyFooter {
   position: sticky;
   bottom: 0;
   margin-left: calc(-1 * var(--site-padding));
   margin-right: calc(-1 * var(--site-padding));
-  padding: 0.5rem var(--site-padding);
+  padding: 0.75rem var(--site-padding);
   display: flex;
   flex-direction: column;
   align-items: center;
   max-height: 75vh;
   overflow: hidden;
 
-  &:before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    top: -0.5rem;
-    background: linear-gradient(
-      0deg,
-      rgb(16, 19, 15) 0%,
-      rgb(16, 19, 15, 1) calc(100% - 0.8rem),
-      rgb(16, 19, 15, 0) 100%
-    );
-    z-index: -1;
-  }
+  background-color: var(--color-black);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .Container {
+  @include tools.resetButton;
+
   width: var(--table-width);
   display: flex;
   gap: 0.5rem;
@@ -40,20 +33,34 @@
 }
 
 .Values {
+  border-spacing: 0;
   text-align: left;
+  min-width: 8rem;
+
+  th,
+  td {
+    padding: 0;
+  }
+
+  th {
+    padding-right: 0.5rem;
+  }
 }
 
-.Value {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
+.ValueLabel {
+  font-weight: 400;
 }
 
 .ValueValue {
   text-align: right;
 }
 
-.IconButton {
+.Icon {
   width: 3rem;
-  height: 3rem;
+  text-align: center;
+  position: relative;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
