@@ -14,9 +14,6 @@ interface RuneCalcState {
   setRunesHeld: (runes: number) => void;
   setRunesNeeded: (runes: number) => void;
   setRuneCount: (rune: InventoryRune, count: number) => void;
-  totalRunes: () => number;
-  remainingNeeded: () => number;
-  heldRunes: () => InventoryRune[];
 }
 
 export const useRuneCalcStore = create<RuneCalcState>((set, get) => ({
@@ -37,23 +34,27 @@ export const useRuneCalcStore = create<RuneCalcState>((set, get) => ({
       ),
     });
   },
-  totalRunes: () => {
-    const runes = get().runes;
-    return runes.reduce(
-      (previous, current) => previous + current.count * current.souls,
-      0
-    );
-  },
-  heldRunes: () => {
-    const runes = get().runes;
-    return runes.filter((rune) => rune.count > 0);
-  },
-  remainingNeeded: () => {
-    const runesNeeded = get().runesNeeded;
-    const runesHeld = get().runesHeld;
-    const totalRunes = get().totalRunes();
-    return runesNeeded - (runesHeld + totalRunes);
-  },
-  // increase: () => {},
   name: "rune-calc-storage",
 }));
+
+/**
+ * COMPUTE HELPERS
+ */
+export const calcTotalRunes = ({ runes }: { runes: InventoryRune[] }) =>
+  runes.reduce(
+    (previous, current) => previous + current.count * current.souls,
+    0
+  );
+
+export const calcHeldRunes = ({ runes }: { runes: InventoryRune[] }) =>
+  runes.filter((rune) => rune.count > 0);
+
+export const calcRemainingNeeded = ({
+  runesNeeded,
+  runesHeld,
+  totalRunes,
+}: {
+  runesNeeded: number;
+  runesHeld: number;
+  totalRunes: number;
+}) => runesNeeded - (runesHeld + totalRunes);
