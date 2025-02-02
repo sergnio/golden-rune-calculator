@@ -15,7 +15,7 @@ const getSign = (overUnder: OverUnder): string => {
 
 export const StickyFooter = () => {
   const [open, setOpen] = useState(false);
-  const { heldRunes } = useRuneCalcStore();
+  const heldRunes = useRuneCalcStore((state) => state.heldRunes);
 
   return (
     <div className={styles.StickyFooter}>
@@ -33,7 +33,10 @@ export const StickyFooter = () => {
 };
 
 const RuneCount = () => {
-  const { totalRunes, runesHeld, remainingNeeded } = useRuneCalcStore();
+  const totalRunes = useRuneCalcStore((state) => state.totalRunes);
+  const runesHeld = useRuneCalcStore((state) => state.runesHeld);
+  const remainingNeeded = useRuneCalcStore((state) => state.remainingNeeded);
+
   const overUnder = getOverUnder(remainingNeeded());
   const neededSign = getSign(overUnder);
   const neededText = `${neededSign}${-1 * remainingNeeded()}`;

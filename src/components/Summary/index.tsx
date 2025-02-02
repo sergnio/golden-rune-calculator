@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { InventoryRune } from "../RuneCalc";
-import { useRuneCalcStore } from "@/store/RuneCalc";
+import { useRuneCalcStore, InventoryRune } from "@/store/RuneCalc";
 import styles from "./styles.module.scss";
 
 export const Summary = () => {
-  const { heldRunes } = useRuneCalcStore();
+  const heldRunes = useRuneCalcStore((state) => state.heldRunes);
 
   return (
     <div className={styles.Content}>

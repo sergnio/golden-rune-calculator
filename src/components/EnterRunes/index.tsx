@@ -1,10 +1,17 @@
 import { NumberInput } from "../NumberInput";
 import { useRuneCalcStore } from "@/store/RuneCalc";
 import styles from "./styles.module.scss";
+import { useEffect } from "react";
 
 export const EnterRunes = () => {
-  const { runesHeld, setRunesHeld, runesNeeded, setRunesNeeded } =
-    useRuneCalcStore();
+  const runesHeld = useRuneCalcStore((state) => state.runesHeld);
+  const setRunesHeld = useRuneCalcStore((state) => state.setRunesHeld);
+  const runesNeeded = useRuneCalcStore((state) => state.runesNeeded);
+  const setRunesNeeded = useRuneCalcStore((state) => state.setRunesNeeded);
+
+  useEffect(() => {
+    console.log("YOOOO");
+  });
 
   return (
     <div className={styles.Container}>

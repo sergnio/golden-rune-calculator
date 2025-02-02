@@ -5,7 +5,8 @@ import { useRuneCalcStore } from "@/store/RuneCalc";
 import styles from "./styles.module.scss";
 
 export const RuneList = () => {
-  const { runes, setRuneCount } = useRuneCalcStore();
+  const runes = useRuneCalcStore((state) => state.runes);
+  const setRuneCount = useRuneCalcStore((state) => state.setRuneCount);
 
   return (
     <div className={styles.Container}>
