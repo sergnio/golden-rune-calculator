@@ -21,12 +21,21 @@ export const StickyFooter = () => {
   const [open, setOpen] = useState(false);
   const heldRunes = useHeldRunes();
   const heldRuneCount = heldRunes.length;
+  const consumeRunes = useRuneCalcStore((state) => state.consumeRunes);
 
+  // Close summary if no runes are selected
   useEffect(() => {
     if (heldRuneCount === 0 && open) {
       setOpen(false);
     }
   }, [open, heldRuneCount]);
+
+  // Add consume runes when summary closed
+  useEffect(() => {
+    if (open === false) {
+      consumeRunes();
+    }
+  }, [open, consumeRunes]);
 
   return (
     <div className={styles.StickyFooter}>

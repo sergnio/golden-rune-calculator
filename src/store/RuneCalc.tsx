@@ -20,6 +20,7 @@ interface RuneCalcState {
   setRunesNeeded: (runes: number) => void;
   setRuneCount: (rune: InventoryRune, count: number) => void;
   consumeRune: (rune: InventoryRune, consumed: boolean) => void;
+  consumeRunes: () => void;
 }
 
 export const useRuneCalcStore = create<RuneCalcState>(
@@ -57,6 +58,37 @@ export const useRuneCalcStore = create<RuneCalcState>(
           runes: [...runes].map((rune) =>
             rune.name === consumedRune.name ? { ...rune, consumed } : rune
           ),
+        });
+      },
+
+      // Consume all runes marked as consumed
+      // Tallies them up, adds them to runesHeld, and marks their count as 0
+      consumeRunes: () => {
+        const runes = get().runes;
+        const runesHeld = get().runesHeld;
+
+        const consumedRunes = runes.filter((rune) => rune.consumed === true);
+        if (consumedRunes.length === 0) {
+          return;
+        }
+
+        const consumedRunesTotal = consumedRunes.reduce(
+          (acc, rune) => acc + rune.count * rune.souls,
+          0
+        );
+
+        set({
+          runesHeld: runesHeld + consumedRunesTotal,
+          runes: [...runes].map((rune) => {
+            if (rune.consumed) {
+              return {
+                ...rune,
+                consumed: false,
+                count: 0,
+              };
+            }
+            return rune;
+          }),
         });
       },
     } satisfies RuneCalcState)
