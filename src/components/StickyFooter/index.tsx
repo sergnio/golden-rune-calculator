@@ -76,7 +76,7 @@ const RuneCount = () => {
       <tbody>
         <tr className={styles.Value}>
           <th className={styles.ValueLabel}>Total:</th>
-          <div className={styles.ValueValue}>{totalRunesHeld}</div>
+          <td className={styles.ValueValue}>{totalRunesHeld}</td>
         </tr>
         <tr className={styles.Value}>
           <th className={styles.ValueLabel}>Needed:</th>
