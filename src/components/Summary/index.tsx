@@ -1,15 +1,16 @@
 import { useState } from "react";
-import { InventoryRune, useRuneCalc } from "../RuneCalc";
+import { InventoryRune } from "../RuneCalc";
+import { useRuneCalcStore } from "@/store/RuneCalc";
 import styles from "./styles.module.scss";
 
 export const Summary = () => {
-  const { heldRunes } = useRuneCalc();
+  const { heldRunes } = useRuneCalcStore();
 
   return (
     <div className={styles.Content}>
       <div className={styles.List}>
         <p className={styles.Title}>Use: </p>
-        {heldRunes.map((rune) => (
+        {heldRunes().map((rune) => (
           <ConsumeRune key={rune.name} rune={rune} />
         ))}
       </div>

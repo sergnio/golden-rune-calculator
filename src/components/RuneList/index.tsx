@@ -1,11 +1,11 @@
 import { MdAdd, MdRemove } from "react-icons/md";
 import { NumberInput } from "@/components/NumberInput";
 import { Button } from "@/components/Button";
-import { useRuneCalc } from "../RuneCalc";
+import { useRuneCalcStore } from "@/store/RuneCalc";
 import styles from "./styles.module.scss";
 
 export const RuneList = () => {
-  const { runes, setRuneCount } = useRuneCalc();
+  const { runes, setRuneCount } = useRuneCalcStore();
 
   return (
     <div className={styles.Container}>

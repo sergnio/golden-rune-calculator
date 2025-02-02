@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
 import { getOverUnder, OverUnder } from "@/utils/calculate";
-import { useRuneCalc } from "../RuneCalc";
+import { useRuneCalcStore } from "@/store/RuneCalc";
 import { Summary } from "../Summary";
 import { Button } from "../Button";
 import styles from "./styles.module.scss";
@@ -15,14 +15,14 @@ const getSign = (overUnder: OverUnder): string => {
 
 export const StickyFooter = () => {
   const [open, setOpen] = useState(false);
-  const { heldRunes } = useRuneCalc();
+  const { heldRunes } = useRuneCalcStore();
 
   return (
     <div className={styles.StickyFooter}>
       {open ? <Summary /> : null}
       <div className={styles.Container}>
         <RuneCount />
-        {heldRunes.length > 0 ? (
+        {heldRunes().length > 0 ? (
           <Button onClick={() => setOpen(!open)} className={styles.IconButton}>
             {open ? <MdExpandMore /> : <MdExpandLess />}
           </Button>
@@ -33,16 +33,16 @@ export const StickyFooter = () => {
 };
 
 const RuneCount = () => {
-  const { runesHeld, totalRunes, remainingNeeded } = useRuneCalc();
-  const overUnder = getOverUnder(remainingNeeded);
+  const { totalRunes, runesHeld, remainingNeeded } = useRuneCalcStore();
+  const overUnder = getOverUnder(remainingNeeded());
   const neededSign = getSign(overUnder);
-  const neededText = `${neededSign}${-1 * remainingNeeded}`;
+  const neededText = `${neededSign}${-1 * remainingNeeded()}`;
 
   return (
     <div className={styles.Values}>
       <div className={styles.Value}>
         <div className={styles.ValueLabel}>Total:</div>
-        <div className={styles.ValueValue}>{runesHeld + totalRunes}</div>
+        <div className={styles.ValueValue}>{runesHeld + totalRunes()}</div>
       </div>
       <div className={styles.Value}>
         <div className={styles.ValueLabel}>Needed:</div>
