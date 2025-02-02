@@ -8,7 +8,6 @@ import {
   useTotalRunes,
 } from "@/store/RuneCalc";
 import { Summary } from "../Summary";
-import { Button } from "../Button";
 import styles from "./styles.module.scss";
 
 const getSign = (overUnder: OverUnder): string => {
