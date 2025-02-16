@@ -56,6 +56,22 @@ export const StickyFooter = () => {
           </div>
         ) : null}
       </button>
+      <div className={styles.BackgroundContainer}>
+        <div className={styles.CornerTopLeft}>
+          <div className={styles.Mask} />
+          <div className={styles.Part1} />
+          <div className={styles.Part2} />
+          <div className={styles.Part3} />
+          <div className={styles.Part4} />
+        </div>
+        <div className={styles.CornerTopRight}>
+          <div className={styles.Mask} />
+          <div className={styles.Part1} />
+          <div className={styles.Part2} />
+          <div className={styles.Part3} />
+          <div className={styles.Part4} />
+        </div>
+      </div>
     </div>
   );
 };
