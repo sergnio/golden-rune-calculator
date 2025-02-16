@@ -14,6 +14,16 @@
 
   background-color: var(--color-black);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
+
+  border-image: url("/footer-border.svg");
+  border-image-slice: 50 50 0;
+  border-image-repeat: stretch;
+  border-image-width: 30px;
+
+  @media screen and (min-width: 36rem) {
+    border-image-width: 50px;
+    border-image-slice: 56 56 0;
+  }
 }
 
 .Container {
