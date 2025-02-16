@@ -1,4 +1,3 @@
-import { sendGAEvent } from "@next/third-parties/google";
 import { MdAdd, MdRemove } from "react-icons/md";
 import { NumberInput } from "@/components/NumberInput";
 import { Button } from "@/components/Button";
