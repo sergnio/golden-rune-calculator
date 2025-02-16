@@ -1,3 +1,4 @@
+import { sendGAEvent } from "@next/third-parties/google";
 import { useEffect, useState } from "react";
 import { MdExpandLess, MdExpandMore } from "react-icons/md";
 import { getOverUnder, OverUnder } from "@/utils/calculate";
@@ -42,7 +43,10 @@ export const StickyFooter = () => {
       <button
         type="button"
         disabled={heldRuneCount === 0}
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          sendGAEvent("event", !open ? "stickyNavOpened" : "stickyNavClosed");
+          return setOpen(!open);
+        }}
         className={styles.Container}
       >
         <RuneCount />

@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { sendGAEvent } from "@next/third-parties/google";
 import { NumberInput } from "../NumberInput";
 import { useRuneCalcStore } from "@/store/RuneCalc";
 import styles from "./styles.module.scss";
@@ -42,6 +45,9 @@ export const EnterRunes = () => {
             onChange={(event) =>
               setRunesHeld(parseInt(event.target.value) || 0)
             }
+            onBlur={() => {
+              sendGAEvent("event", "runesHeld", { value: runesHeld });
+            }}
             value={runesHeld}
           />
         </fieldset>
@@ -55,6 +61,9 @@ export const EnterRunes = () => {
             onChange={(event) =>
               setRunesNeeded(parseInt(event.target.value) || 0)
             }
+            onBlur={() => {
+              sendGAEvent("event", "runesNeeded", { value: runesNeeded });
+            }}
             value={runesNeeded}
           />
         </fieldset>
