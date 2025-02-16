@@ -1,3 +1,4 @@
+import { sendGAEvent } from "@next/third-parties/google";
 import { create } from "zustand";
 import { allRunes, Rune } from "@/constants/runes";
 
@@ -43,6 +44,7 @@ export const useRuneCalcStore = create<RuneCalcState>(
 
       // Set the count for a specific rune
       setRuneCount: (setRune: InventoryRune, count: number) => {
+        sendGAEvent("event", "setRuneCount", { rune: setRune.name, count });
         const runes = get().runes;
         set({
           runes: [...runes].map((rune) =>
@@ -53,6 +55,10 @@ export const useRuneCalcStore = create<RuneCalcState>(
 
       // Mark a rune as consumed
       consumeRune: (consumedRune: InventoryRune, consumed: boolean) => {
+        sendGAEvent("event", "consumeRune", {
+          rune: consumedRune.name,
+          consumed,
+        });
         const runes = get().runes;
         set({
           runes: [...runes].map((rune) =>
@@ -64,6 +70,8 @@ export const useRuneCalcStore = create<RuneCalcState>(
       // Consume all runes marked as consumed
       // Tallies them up, adds them to runesHeld, and marks their count as 0
       consumeRunes: () => {
+        sendGAEvent("event", "consumeRunes");
+
         const runes = get().runes;
         const runesHeld = get().runesHeld;
 
